@@ -1,0 +1,42 @@
+FROM THE PROJECT OUTLINE
+{
+Milestone 1: Early prototype. Give a 10-15 minute demo during the lab on March 6
+th
+.
+For this milestone we are looking to see enough functionality to get a feel for the system and how it will
+work. One important use case should be operational. It should collect data from the back end, do
+something with it and display the result. The display doesn't need to be fancy. There should be a GitHub
+repo, integrated with Travis CI (or other hosted CI), and the app should be up and running on Heroku.
+We will also inspect the README file, the Issues, the Kanban, the code reviews, the tests, and we will
+verify that everybody is participating in all aspects of the project (if that is not the case, different team
+members will end up with different grades)
+}
+Tasks to be completed by March 6th
+-Perform tasks done in prior labs in order to get the project up and running
+	-Create App
+	-Set up ORM
+	-SPring Framework
+	-CI/CD
+	-MVC
+	-Deploy to heroku
+-Set up and organize github to facilitate best practices for software developement
+	-README
+	-Kanban
+	-Issues (for tasks and bugs)
+	-Code Reviews
+-Implement Core functionality to get a feel for App
+	- One important use case... Book Search
+
+Task Breakdown
+(Week 1 tasks Complete by Feb 27)
+Task 1 (Complete) Create github Repo (Ahmed Khattab)
+Task 2 Organize GitHub:README, Kanban, Issues, Code Reviews
+Task 3 Create basic hello world
+Task 4 Set up ORM/DB
+Task 5 Set up spring framework
+Task 6 implement basic MVC
+Task 7 Deploy to Heroku 
+Task 8 Integrate project with Travis CI
+
+
+(Week 2 tasks Complete by Mar 6th)
