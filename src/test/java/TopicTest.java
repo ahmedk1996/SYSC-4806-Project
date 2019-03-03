@@ -4,34 +4,32 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class TopicTest {
-    Topic budd;
+    Topic topic;
     @Test
     public void getName() {
-        budd = new Topic("hh",555);
-        assertEquals("The name should be hh","hh",budd.getDescription());
+        topic = new Topic("hh","software",555);
+        assertEquals("The name should be hh","hh", topic.getDescription());
     }
 
     @Test
     public void setName() {
-        budd = new Topic("hh",555);
-        budd.setDescription("ah");
-        assertEquals("The name should be ah","ah",budd.getDescription());
+        topic = new Topic("hh","software",555);
+        topic.setDescription("ah");
+        assertEquals("The name should be ah","ah", topic.getDescription());
     }
 
     @Test
     public void getPhoneN() {
-        budd = new Topic("hh",555);
-        assertEquals("The number should be 555",555,budd.getMax_Students());
+        topic = new Topic("hh","software",555);
+        assertEquals("The number should be 555",555, topic.getMax_Students());
     }
 
     @Test
     public void setPhoneN() {
-        budd = new Topic("hh",555);
-        budd.setMax_Students(44);
-        assertEquals("The number should be 44",44,budd.getMax_Students());
+        topic = new Topic("hh","software",555);
+        topic.setMax_Students(44);
+        assertEquals("The number should be 44",44, topic.getMax_Students());
     }
-
-
 
 
 

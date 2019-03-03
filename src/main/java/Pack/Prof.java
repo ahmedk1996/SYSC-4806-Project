@@ -61,17 +61,17 @@ public class Prof {
     }
 
     public static void main(String[] args){
-        Prof address = new Prof();
+        Prof prof = new Prof();
 
-        Topic topic1 = new Topic("Ahmed",232232);
-        Topic topic2 = new Topic("AK",42232);
-        Topic topic3 = new Topic("Ilham",65334);
+        Topic topic1 = new Topic("Ahmed","software",232232);
+        Topic topic2 = new Topic("AK","software",42232);
+        Topic topic3 = new Topic("Ilham","software",65334);
 
-        address.addTopic(topic1);
-        address.addTopic(topic2);
-        address.addTopic(topic3);
+        prof.addTopic(topic1);
+        prof.addTopic(topic2);
+        prof.addTopic(topic3);
 
-        address.toString();
+        prof.toString();
 
     }
 

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class TopicController {
 
     @Autowired
-    private ProfRepository addressBookR;
+    private ProfRepository profRepository;
 
 
     @GetMapping("/create")
@@ -23,7 +23,7 @@ public class TopicController {
 
     @PostMapping("/create")
     public String greetingSubmit(@ModelAttribute Prof prof) {
-        addressBookR.save(prof);
+        profRepository.save(prof);
         return "createAddressBook";
 }
 }
