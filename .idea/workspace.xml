@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9f9ae6bd-0c90-49bd-b439-2587564b2ad6" name="Default Changelist" comment="" />
     <list default="true" id="9f9ae6bd-0c90-49bd-b439-2587564b2ad6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Pat Buchanans/src/main/java/Pack/Student" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pat Buchanans/src/main/java/Pack/Coordinator" beforeDir="false" afterPath="$PROJECT_DIR$/Pat Buchanans/src/main/java/Pack/Coordinator" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/Pat Buchanans/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -117,8 +115,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Pat Buchanans/src/main/java/Pack/Student">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+            <state relative-caret-position="187">
+              <caret line="15" column="24" lean-forward="true" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
               <folding>
                 <element signature="e#378#379#0" expanded="true" />
                 <element signature="e#397#398#0" expanded="true" />
@@ -250,7 +248,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551654607921" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551656283126" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -281,12 +279,12 @@
       <option name="presentableId" value="Default" />
       <updated>1551648248646</updated>
       <workItem from="1551648257818" duration="4479000" />
-      <workItem from="1551653704842" duration="900000" />
+      <workItem from="1551653704842" duration="2200000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3096000" />
+    <option name="totallyTimeSpent" value="4396000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -486,8 +484,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Pat Buchanans/src/main/java/Pack/Student">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+        <state relative-caret-position="187">
+          <caret line="15" column="24" lean-forward="true" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
           <folding>
             <element signature="e#378#379#0" expanded="true" />
             <element signature="e#397#398#0" expanded="true" />
