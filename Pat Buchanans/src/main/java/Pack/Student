@@ -6,26 +6,38 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.*;
 @Entity
-public class Coordinator {
+public class Student {
+
     @Id
     private Integer id;
+
+    private Integer projectId;
 
     private String name;
 
 
-
-    public void Coordinator (){
+    public void Student(){
 
     }
-    public void Coordinator (String name){
+
+    public void Student(String name){
         this.name = name;
     }
+
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(Integer projectId) {
+        this.projectId = projectId;
     }
 
     public String getName() {
