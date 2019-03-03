@@ -12,7 +12,7 @@ public class ProfTest {
     public void addBuddy() {
         address = new Prof();
         budd = new Topic("fly",333);
-        address.addBuddy(budd);
+        address.addTopic(budd);
         assertEquals("size should be 1" ,1,address.getSize());
     }
 }
