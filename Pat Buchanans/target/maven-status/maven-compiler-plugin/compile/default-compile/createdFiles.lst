@@ -3,5 +3,6 @@ Pack/AddressBook.class
 Pack/AddressBookRepository.class
 Pack/BuddyRepository.class
 Pack/CreateABController.class
+Pack/ViewConfig.class
 Pack/BuddyController.class
 Pack/Application.class
