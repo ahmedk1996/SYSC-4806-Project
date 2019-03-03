@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Amazin Online Bookstore" />
         <module name="Sysc 4806 lab" />
+        <module name="SYSC-4806-Project" />
         <module name="Tappo" />
       </profile>
     </annotationProcessing>

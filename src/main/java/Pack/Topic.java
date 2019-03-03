@@ -22,6 +22,10 @@ public class Topic {
         this.restrictions = restrictions;
     }
 
+    public Topic (String s, int i){
+        this.description = s;
+        this.max_Students = i;
+    }
 
     public String getRestrictions() {
         return restrictions;
