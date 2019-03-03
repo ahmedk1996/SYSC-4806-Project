@@ -1,5 +1,5 @@
 
-import Pack.JBuddy;
+import Pack.Topic;
 import org.junit.Assert;
 
 import java.util.List;
@@ -15,13 +15,13 @@ public class JPATest {
     public void performJPA() {
 
         // Creating objects representing some products
-        JBuddy product1 = new JBuddy("ahmed",322);
-        product1.setPhoneN(2332);
-        product1.setName("Ahmed");
+        Topic product1 = new Topic("ahmed",322);
+        product1.setMax_Students(2332);
+        product1.setDescription("Ahmed");
 
-        JBuddy product2 = new JBuddy("khatt", 333);
-        product2.setPhoneN(21313);
-        product2.setName("Khattab");
+        Topic product2 = new Topic("khatt", 333);
+        product2.setMax_Students(21313);
+        product2.setDescription("Khattab");
 
         // Connecting to the database through EntityManagerFactory
         // connection details loaded from persistence.xml
@@ -41,16 +41,16 @@ public class JPATest {
         tx.commit();
 
         // Querying the contents of the database using JPQL query
-        Query q = em.createQuery("SELECT bud FROM JBuddy bud");
+        Query q = em.createQuery("SELECT bud FROM Topic bud");
 
         @SuppressWarnings("unchecked")
-        List<JBuddy> results = q.getResultList();
+        List<Topic> results = q.getResultList();
 
         System.out.println("List of names\n----------------");
 
-        for (JBuddy bud : results) {
+        for (Topic bud : results) {
 
-            System.out.println(bud.getName() + " (phone numbers=" + bud.getPhoneN() + ")");
+            System.out.println(bud.getDescription() + " (phone numbers=" + bud.getMax_Students() + ")");
             Assert.assertTrue(bud.equals(product1) || bud.equals(product2));
         }
 
