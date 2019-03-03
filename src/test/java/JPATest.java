@@ -15,11 +15,11 @@ public class JPATest {
     public void performJPA() {
 
         // Creating objects representing some products
-        Topic product1 = new Topic("ahmed",322);
+        Topic product1 = new Topic("ahmed","software",322);
         product1.setMax_Students(2332);
         product1.setDescription("Ahmed");
 
-        Topic product2 = new Topic("khatt", 333);
+        Topic product2 = new Topic("khatt","software", 333);
         product2.setMax_Students(21313);
         product2.setDescription("Khattab");
 
@@ -41,7 +41,7 @@ public class JPATest {
         tx.commit();
 
         // Querying the contents of the database using JPQL query
-        Query q = em.createQuery("SELECT bud FROM Topic bud");
+        Query q = em.createQuery("SELECT topic FROM Topic topic");
 
         @SuppressWarnings("unchecked")
         List<Topic> results = q.getResultList();

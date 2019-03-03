@@ -5,14 +5,14 @@ import static org.junit.Assert.*;
 
 public class ProfTest {
 
-   Prof address;
-   Topic budd;
+   Prof prof;
+   Topic topic;
 
     @org.junit.Test
     public void addBuddy() {
-        address = new Prof();
-        budd = new Topic("fly",333);
-        address.addTopic(budd);
-        assertEquals("size should be 1" ,1,address.getSize());
+        prof = new Prof();
+        topic = new Topic("fly","software",333);
+        prof.addTopic(topic);
+        assertEquals("size should be 1" ,1, prof.getSize());
     }
 }
