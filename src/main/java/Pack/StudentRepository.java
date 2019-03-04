@@ -11,4 +11,5 @@ public interface StudentRepository extends CrudRepository<Student, Integer> {
 
     List<Student> findById(Student student);
 
+
 }

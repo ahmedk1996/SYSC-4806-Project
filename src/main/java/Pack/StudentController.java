@@ -1,6 +1,7 @@
 package Pack;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -8,23 +9,22 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.ArrayList;
 import java.util.List;
 
-@RestController
+@Controller
 public class StudentController {
 
-    @Autowired
+
+
+
     private TopicRepository TopicRepository;
+    @Autowired
     private StudentRepository studentRepository;
 
 
 
-    public StudentController(StudentRepository studentRepository) {
-        this.studentRepository = studentRepository;
-    }
-
-    @GetMapping(value = "/student")
+    @GetMapping(value = "/student" )
     public String studentNew(Model model) {
         model.addAttribute("student", new Student());
-        return "Student";
+        return "Student" ;
     }
 
     @PostMapping(value = "/student")
@@ -32,8 +32,8 @@ public class StudentController {
         studentRepository.save(student);
         return "Student";
     }
-
-    @RequestMapping(value = "/student", method = RequestMethod.GET)
+/*
+    @RequestMapping(value = "/studentshow", method = RequestMethod.GET)
     public ModelAndView getdata() {
 
         List<String> list = getList();
@@ -60,8 +60,9 @@ public class StudentController {
         return list;
 
     }
+*/
 
-
+    
 
     @GetMapping("/projectdisplay")
     public String displayBuddy(@RequestParam(value="topic") Topic topic, Model model ){

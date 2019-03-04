@@ -13,7 +13,7 @@ public class Student {
 
     private String name;
 
-    private Integer ProjectId;
+    private Integer projectId;
 
     public Student(){
 
@@ -22,6 +22,7 @@ public class Student {
     public Student(String name, Integer id){
         this.name = name;
         this.id = id;
+        this.projectId = null;
     }
 
     public Integer getId() {
@@ -41,11 +42,11 @@ public class Student {
     }
 
     public Integer getProjectId() {
-        return ProjectId;
+        return projectId;
     }
 
     public void setProjectId(Integer projectId) {
-        ProjectId = projectId;
+        projectId = projectId;
     }
 
 }
