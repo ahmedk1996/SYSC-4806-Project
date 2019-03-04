@@ -1,15 +1,11 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>AddressBook</title>
+    <title>Printed AddressBook</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-
-<h1>Result</h1>
-<body>
-<p th:each="prof: ${AddressBook}"
-   th:text="${AddressBook.topics}">buddies</p>
-</body>
+<p th:each = "buddy: ${addresbook.getTopics()}"
+   th:text = "${buddy.toString()}"></p>
 </body>
 </html>

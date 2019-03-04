@@ -1,61 +1,43 @@
 package Pack;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 public class ProfController {
 
-   private Topic topic;
-   private Prof prof;
-
     @Autowired
-    private ProfRepository profRepository;
-    @Autowired
-    private TopicRepository topicRepository;
+    private ProfRepository addressRepo;
 
-    @GetMapping("/add")
-    public String addTopic(Model model,@RequestParam Integer addressBook){
+    @RequestMapping ("/create")
+    public Prof newbook (@RequestParam (value = "name", defaultValue = "1") int id, Model model){
 
-       model.addAttribute("topic", new Topic());
-       model.addAttribute("addressBook",new Prof());
-
-        return "addJBuddy";
-    }
-
-    @PostMapping("/add")
-    public String addTopicView(@ModelAttribute Topic topic_param, @RequestParam Integer addressBookId ) {
-        Topic topic_var = new Topic();
-        topic_var = topic_param;
-        topicRepository.save(topic_var);
-
-        prof = profRepository.findById(addressBookId).orElse(null);
-        prof.addTopic(topic_param);
-        profRepository.save(prof);
-        return "addressBook";
-    }
-
-    @GetMapping("/remove")
-    public void removeBuddy(@RequestParam(value="topic") int topic, @RequestParam(value="addressBook") Integer addressBook  ){
-
-        profRepository.findById(addressBook).get().removeTopic(topic);
+        Prof book = new Prof();
+        book.setId(id);
+        addressRepo.save(book);
+        return book;
 
     }
 
-    @GetMapping("/display")
-    public String displayBuddy(@RequestParam(value="addressBook") Integer addressBook, Model model ){
+    @RequestMapping ("/print")
+    public int print (@RequestParam (value = "id") int id){
+        Prof newBook = new Prof();
 
-        prof = profRepository.findById(addressBook).orElse(null);
-        System.out.println(prof);
-        model.addAttribute("print", prof);
-        return "addressBook";
+        for (Prof address : addressRepo.findProfById(id)) {
+            newBook= address;
+        }
+
+        return newBook.getSize();
+
     }
+/*
+    @PostMapping("/create")
+    public String printAddressBook(@ModelAttribute AddressBook print){
+        return "Created";
 
-
-
+    }
+*/
 }
