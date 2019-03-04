@@ -8,11 +8,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Iterator;
 
 @Controller
 public class StudentController {
-
-
 
 
     private TopicRepository TopicRepository;
@@ -27,9 +27,10 @@ public class StudentController {
         return "Student" ;
     }
 
-    @PostMapping(value = "/student")
+    @PostMapping(value = "/student" )
     public String studentSubmit(@ModelAttribute Student student) {
         studentRepository.save(student);
+
         return "Student";
     }
 /*
@@ -62,6 +63,11 @@ public class StudentController {
     }
 */
 
+    @GetMapping ("/students")
+    public String display (Model model){
+        model.addAttribute( "studentList", studentRepository.findAll());
+        return "Student";
+    }
     
 
     @GetMapping("/projectdisplay")

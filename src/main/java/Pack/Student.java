@@ -15,13 +15,16 @@ public class Student {
 
     private Integer projectId;
 
+    private String program;
+
     public Student(){
 
     }
 
-    public Student(String name, Integer id){
+    public Student(String name, Integer id, String program){
         this.name = name;
         this.id = id;
+        this.program = program;
         this.projectId = null;
     }
 
@@ -49,4 +52,11 @@ public class Student {
         projectId = projectId;
     }
 
+    public String getProgram() {
+        return program;
+    }
+
+    public void setProgram(String program) {
+        this.program = program;
+    }
 }
