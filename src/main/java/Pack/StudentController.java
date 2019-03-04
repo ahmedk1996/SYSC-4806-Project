@@ -1,6 +1,7 @@
 package Pack;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -8,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.ArrayList;
 import java.util.List;
 
-@RestController
+@Controller
 public class StudentController {
 
     @Autowired
@@ -17,9 +18,10 @@ public class StudentController {
 
 
 
-    public StudentController(StudentRepository studentRepository) {
-        this.studentRepository = studentRepository;
-    }
+    /*public StudentController(StudentRepository studentRepository) {
+
+        //this.studentRepository = studentRepository;
+    }*/
 
     @GetMapping(value = "/student")
     public String studentNew(Model model) {
@@ -33,7 +35,7 @@ public class StudentController {
         return "Student";
     }
 
-    @RequestMapping(value = "/student", method = RequestMethod.GET)
+   /* @RequestMapping(value = "/student", method = RequestMethod.GET)
     public ModelAndView getdata() {
 
         List<String> list = getList();
@@ -44,7 +46,7 @@ public class StudentController {
 
         return model;
 
-    }
+    }*/
 
     private List<String> getList() {
 
