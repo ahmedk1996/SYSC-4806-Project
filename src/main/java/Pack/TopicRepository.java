@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface TopicRepository extends CrudRepository<Topic, Integer> {
 
-    List<Topic> findByName(String firstName);
+    List<Topic> findByDescription(String description);
 }

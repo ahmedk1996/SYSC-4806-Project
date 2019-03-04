@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Result Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Result</h1>
+<p th:text="'Name: ' + ${buddy.description}" />
+<p th:text="'Phone Number: ' + ${buddy.restrictions}" />
+<a href="/add">Submit another message</a>
+</body>
+</html>

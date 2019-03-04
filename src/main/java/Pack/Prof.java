@@ -9,6 +9,9 @@ import java.util.*;
 public class Prof {
 
 
+    public void setTopics(List<Topic> topics) {
+        this.topics = topics;
+    }
 
     @OneToMany(cascade = CascadeType.PERSIST)
     private List<Topic> topics;

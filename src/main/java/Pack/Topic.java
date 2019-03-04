@@ -8,9 +8,18 @@ public class Topic {
 
 
     private String description;
-    @Id
     private int max_Students;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Id
+    private int id;
     private String restrictions;
 
     public Topic(){
