@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml">
 <head>
-    <title>STUDENT</title>
+    <title>Student Registration</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
@@ -12,12 +12,6 @@
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 </form>
 
-<tbody action="#" th:action="@{/students}" th:object="${studentList}">
-    <tr th:each="student: ${studentList}">
-        <td th:number="${student.id}" />
-        <td th:text="${student.name}" />
-        <td th:text="${student.program}" />
-    </tr>
-</tbody>
+
 </body>
 </html>

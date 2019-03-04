@@ -12,7 +12,9 @@ public class TopicController {
     ProfRepository addressRepo;
     Prof newBook;
     @Autowired
-    TopicRepository BuddyRepo;
+    static TopicRepository BuddyRepo;
+
+
 
     @GetMapping ("/add")
     public String addForm(Model model) {
