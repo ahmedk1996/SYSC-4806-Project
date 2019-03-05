@@ -12,7 +12,7 @@ public class TopicController {
     ProfRepository addressRepo;
     Prof newBook;
     @Autowired
-    static TopicRepository BuddyRepo;
+    TopicRepository BuddyRepo;
 
 
 

@@ -1,11 +1,16 @@
 package Pack;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class Topic {
 
+    @Id
+    // this will create the random number of id every time.
+    @GeneratedValue
+    private int id;
 
     private String description;
     private int max_Students;
@@ -18,8 +23,7 @@ public class Topic {
         this.id = id;
     }
 
-    @Id
-    private int id;
+
     private String restrictions;
 
     public Topic(){

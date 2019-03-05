@@ -6,13 +6,24 @@
 </head>
 <body>
 <h1>Form</h1>
-<form action="#" th:action="@{/student}" th:object="${student}" method="post">
-    <p>Student Name: <input type="text" th:field="*{name}" /> <errors path="name" /></p>
-    <p>Student Number: <input type="number" th:field="*{id}" /></p>
-    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-</form>
 
+<table>
+    <thead>
+    <tr>
+        <th> Description </th>
+        <th> Restrictions </th>
+        <th> Max Student </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="topic : ${topicList}">
+        <td><span th:text="${topic.description}"> Description </span></td>
+        <td><span th:text="${topic.restrictions}"> Restrictions </span></td>
+        <td><span th:number="${topic.max_Students}"> Max Student</span></td>
+    </tr>
 
+    </tbody>
+</table>
 
 </body>
 </html>

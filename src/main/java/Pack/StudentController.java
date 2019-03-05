@@ -14,13 +14,13 @@ import java.util.Iterator;
 @Controller
 public class StudentController {
 
-
-    private TopicRepository TopicRepository;
+    @Autowired
+    private TopicRepository topicRepository;
     @Autowired
     private StudentRepository studentRepository;
 
 
-
+/*
     @GetMapping(value = "/student" )
     public String studentNew(Model model) {
         model.addAttribute("student", new Student());
@@ -33,6 +33,7 @@ public class StudentController {
 
         return "Student";
     }
+  */
 /*
     @RequestMapping(value = "/studentshow", method = RequestMethod.GET)
     public ModelAndView getdata() {
@@ -63,13 +64,14 @@ public class StudentController {
     }
 */
 
-    @GetMapping ("/students")
-    public String display (Model model){
-        model.addAttribute( "studentList", studentRepository.findAll());
+    @GetMapping(value = "/students")
+    public String display ( Model model){
+
+        model.addAttribute( "topicList", topicRepository.findAll());
         return "Student";
     }
-    
 
+/*
     @GetMapping("/projectdisplay")
     public String displayBuddy(@RequestParam(value="topic") Topic topic, Model model ){
 
@@ -78,5 +80,5 @@ public class StudentController {
         model.addAttribute("print", topicList);
         return "Student";
     }
-
+*/
 }
