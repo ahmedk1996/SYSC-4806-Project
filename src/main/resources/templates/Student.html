@@ -12,6 +12,7 @@
     <tr>
         <th> Description </th>
         <th> Restrictions </th>
+      <!--  <th> Current Student </th> -->
         <th> Max Student </th>
     </tr>
     </thead>
@@ -19,7 +20,13 @@
     <tr th:each="topic : ${topicList}">
         <td><span th:text="${topic.description}"> Description </span></td>
         <td><span th:text="${topic.restrictions}"> Restrictions </span></td>
+    <!--    <td><span th:text="${topic.}"> Current Student</span></td> -->
         <td><span th:number="${topic.max_Students}"> Max Student</span></td>
+
+        <td><form method="post" >
+            <input type='submit' name='join' value='Join' th:action="join" />
+            <input type='submit' name='detail' value='Detail' th:action="detail" />
+        </form></td>
     </tr>
 
     </tbody>
