@@ -8,34 +8,34 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Iterator;
 
 @Controller
 public class StudentController {
 
     @Autowired
-    private TopicRepository TopicRepository;
+    private TopicRepository topicRepository;
+    @Autowired
     private StudentRepository studentRepository;
 
 
-
-    /*public StudentController(StudentRepository studentRepository) {
-
-        //this.studentRepository = studentRepository;
-    }*/
-
-    @GetMapping(value = "/student")
+/*
+    @GetMapping(value = "/student" )
     public String studentNew(Model model) {
         model.addAttribute("student", new Student());
-        return "Student";
+        return "Student" ;
     }
 
-    @PostMapping(value = "/student")
+    @PostMapping(value = "/student" )
     public String studentSubmit(@ModelAttribute Student student) {
         studentRepository.save(student);
+
         return "Student";
     }
-
-   /* @RequestMapping(value = "/student", method = RequestMethod.GET)
+  */
+/*
+    @RequestMapping(value = "/studentshow", method = RequestMethod.GET)
     public ModelAndView getdata() {
 
         List<String> list = getList();
@@ -46,7 +46,7 @@ public class StudentController {
 
         return model;
 
-    }*/
+    }
 
     private List<String> getList() {
 
@@ -62,9 +62,16 @@ public class StudentController {
         return list;
 
     }
+*/
 
+    @GetMapping(value = "/students")
+    public String display ( Model model){
 
+        model.addAttribute( "topicList", topicRepository.findAll());
+        return "Student";
+    }
 
+/*
     @GetMapping("/projectdisplay")
     public String displayBuddy(@RequestParam(value="topic") Topic topic, Model model ){
 
@@ -73,5 +80,5 @@ public class StudentController {
         model.addAttribute("print", topicList);
         return "Student";
     }
-
+*/
 }
