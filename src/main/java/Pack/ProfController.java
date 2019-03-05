@@ -1,43 +1,39 @@
 package Pack;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 public class ProfController {
 
     @Autowired
-    private ProfRepository addressRepo;
+    ProfRepository profRepository;
+    Prof newBook;
+    @Autowired
+    TopicRepository topicRepository;
 
-    @RequestMapping ("/create")
-    public Prof newbook (@RequestParam (value = "name", defaultValue = "1") int id, Model model){
-
-        Prof book = new Prof();
-        book.setId(id);
-        addressRepo.save(book);
-        return book;
-
+    @GetMapping ("/add")
+    public String addForm(Model model) {
+        model.addAttribute("topic", new Topic());
+        return "Addform";
     }
 
-    @RequestMapping ("/print")
-    public int print (@RequestParam (value = "id") int id){
-        Prof newBook = new Prof();
-
-        for (Prof address : addressRepo.findProfById(id)) {
-            newBook= address;
-        }
-
-        return newBook.getSize();
-
+    @PostMapping("/add")
+    public String addSubmit(@ModelAttribute Topic topic, Model model) {
+        Topic newTopic;
+        newTopic = topic;
+        topicRepository.save(newTopic);
+        model.addAttribute("topic", newTopic);
+        return "ProfTopicResultsForm";
     }
-/*
-    @PostMapping("/create")
-    public String printAddressBook(@ModelAttribute AddressBook print){
-        return "Created";
 
+    @GetMapping ("/all")
+    public String display (Model model,@ModelAttribute Topic topic){
+        model.addAttribute( "topic", profRepository.findById(topic.getId()));
+        return "Display";
     }
-*/
+
+
 }

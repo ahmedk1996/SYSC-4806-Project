@@ -1,17 +1,18 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Handling Form Submission</title>
+    <title>Add a Topic</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<h1>Form</h1>
-<form action="#" th:action="@{/add}" th:object="${buddy}" method="post">
-    <p>Buddy Name: <input type="text" th:field="*{description}" /></p>
-    <p>Phone Number: <input type="text" th:field="*{restrictions}" /></p>
-    <p>Address: <input type="number" th:field="*{max_Students}" /></p>
+<h1>Add A Topic Form</h1>
+<form action="#" th:action="@{/add}" th:object="${topic}" method="post">
+    <p>Name: Mr. Babak</p>
+    <p>Topic Title: <input type="text" th:field="*{topicName}" /></p>
+    <p>Topic Description:
+    <p><input type="text" th:field="*{description}" style="height: 150px" size="50"/></p>
+    <p>Max. Desired Students: <input type="number" th:field="*{max_Students}" /></p>
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-    <button type="submit" action="/">Home Page</button>
 </form>
 </body>
 </html>

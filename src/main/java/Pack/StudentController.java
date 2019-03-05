@@ -18,10 +18,9 @@ public class StudentController {
 
 
 
-    /*public StudentController(StudentRepository studentRepository) {
-
-        //this.studentRepository = studentRepository;
-    }*/
+    public StudentController(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
 
     @GetMapping(value = "/student")
     public String studentNew(Model model) {
@@ -35,18 +34,18 @@ public class StudentController {
         return "Student";
     }
 
-   /* @RequestMapping(value = "/student", method = RequestMethod.GET)
-    public ModelAndView getdata() {
-
-        List<String> list = getList();
-
-        //return back to index.jsp
-        ModelAndView model = new ModelAndView("index");
-        model.addObject("lists", list);
-
-        return model;
-
-    }*/
+//    @RequestMapping(value = "/student", method = RequestMethod.GET)
+//    public ModelAndView getdata() {
+//
+//        List<String> list = getList();
+//
+//        //return back to index.jsp
+//        ModelAndView model = new ModelAndView("index");
+//        model.addObject("lists", list);
+//
+//        return model;
+//
+//    }
 
     private List<String> getList() {
 
@@ -68,7 +67,7 @@ public class StudentController {
     @GetMapping("/projectdisplay")
     public String displayBuddy(@RequestParam(value="topic") Topic topic, Model model ){
 
-       String topicList = studentRepository.toString();
+        String topicList = studentRepository.toString();
         System.out.println(topicList);
         model.addAttribute("print", topicList);
         return "Student";
