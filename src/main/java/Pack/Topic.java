@@ -7,7 +7,12 @@ import javax.persistence.Id;
 @Entity
 public class Topic {
 
+    @Id
+    @GeneratedValue
+    private int id;
+    private String restrictions;
 
+    private String topicName;
     private String description;
     private int max_Students;
 
@@ -19,19 +24,26 @@ public class Topic {
         this.id = id;
     }
 
-    @Id
-    @GeneratedValue
-    private int id;
-    private String restrictions;
+
 
     public Topic(){
 
     }
-    public Topic(String description, String restrictions , int max_Students){
+    public Topic(String topicName, String description, String restrictions , int max_Students){
+        this.topicName = topicName;
         this.description = description;
         this.max_Students = max_Students;
         this.restrictions = restrictions;
     }
+
+    public String getTopicName() {
+        return topicName;
+    }
+
+    public void setTopicName(String topicName) {
+        this.topicName = topicName;
+    }
+
 
     public String getRestrictions() {
         return restrictions;
