@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Project Results Form</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Topics:</h1>
+<p th:text="'Topic: ' + ${topic.topicName}" />
+<p th:text="'Topic Description: ' + ${topic.description}" />
+<p th:text="'Maximum Students Allowed: ' + ${topic.max_Students}" />
+<p th:text="'Students Restriction: ' + ${topic.restrictions}" />
+
+<a href="/add">Create another project</a>
+</body>
+</html>

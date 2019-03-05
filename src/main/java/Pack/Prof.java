@@ -63,6 +63,7 @@ public class Prof {
         return topics.size();
     }
 
+    /*
     public static void main(String[] args){
         Prof prof = new Prof();
 
@@ -77,6 +78,6 @@ public class Prof {
         prof.toString();
 
     }
-
+*/
 
 }
