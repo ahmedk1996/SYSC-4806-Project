@@ -22,8 +22,8 @@ public class Prof {
         topics = new ArrayList<Topic>();
     }
 
-    public void addTopic(Topic budd){
-        topics.add(budd);
+    public void addTopic(Topic topic){
+        topics.add(topic);
     }
 
     public void removeTopic(int index){
