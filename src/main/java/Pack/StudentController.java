@@ -19,6 +19,19 @@ public class StudentController {
     @Autowired
     private StudentRepository studentRepository;
 
+    @GetMapping(value = "/student")
+    public String display ( Model model){
+
+        model.addAttribute( "topicList", topicRepository.findAll());
+        return "Student";
+    }
+
+    @RequestMapping(params = "join")
+    public String joiningTopic(Model model){
+
+        return "Student";
+    }
+
 
 /*
     @GetMapping(value = "/student" )
@@ -34,42 +47,9 @@ public class StudentController {
         return "Student";
     }
   */
-/*
-    @RequestMapping(value = "/studentshow", method = RequestMethod.GET)
-    public ModelAndView getdata() {
 
-        List<String> list = getList();
 
-        //return back to index.jsp
-        ModelAndView model = new ModelAndView("index");
-        model.addObject("lists", list);
 
-        return model;
-
-    }
-
-    private List<String> getList() {
-
-        List<String> list = new ArrayList<String>();
-        list.add("List A");
-        list.add("List B");
-        list.add("List C");
-        list.add("List D");
-        list.add("List 1");
-        list.add("List 2");
-        list.add("List 3");
-
-        return list;
-
-    }
-*/
-
-    @GetMapping(value = "/students")
-    public String display ( Model model){
-
-        model.addAttribute( "topicList", topicRepository.findAll());
-        return "Student";
-    }
 
 /*
     @GetMapping("/projectdisplay")
