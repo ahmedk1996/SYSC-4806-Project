@@ -11,6 +11,10 @@
 <p th:text="'Maximum Students Allowed: ' + ${topic.max_Students}" />
 <p th:text="'Students Restriction: ' + ${topic.restrictions}" />
 
-<a href="/add">Create another project</a>
+<form class="form-inline" style=" margin-left: auto;
+    margin-right: auto;">
+    <button class="btn btn-outline-success" type="submit" formaction="/add">Create another Project</button>
+    <button class="btn btn-outline-success" type="submit" formaction="/deadline">View Students without a Project</button>
+</form>
 </body>
 </html>

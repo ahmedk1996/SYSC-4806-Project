@@ -10,9 +10,9 @@
     <p>Name: Mr. Babak</p>
     <p>Topic Title: <input type="text" th:field="*{topicName}" /></p>
     <p>Topic Description:
-    <p><input type="text" th:field="*{description}" style="height: 150px" size="50"/></p>
+    <p><textarea input type="text" th:field="*{description}" rows="10" cols="40"></textarea></p>
     <p>Topic Restrictions:
-    <p><input type="text" th:field="*{restrictions}" style="height: 150px" size="50"/></p>
+    <p><textarea input type="text" th:field="*{restrictions}" rows="10" cols="40"></textarea></p>
     <p>Max. Desired Students: <input type="number" th:field="*{max_Students}" /></p>
     <p><input type="submit" value="Submit" /><input type="reset" value="Reset" /></p>
 </form>
