@@ -1,7 +1,6 @@
 package Pack;
 import java.io.IOException;
 import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -56,10 +55,6 @@ public class FileUploadController {
         return "redirect:/upload";
     }
 
-//    @ExceptionHandler(StorageFileNotFoundException.class)
-//    public ResponseEntity<?> handleStorageFileNotFound(StorageFileNotFoundException exc) {
-//        return ResponseEntity.notFound().build();
-//   }
 
 
 }
