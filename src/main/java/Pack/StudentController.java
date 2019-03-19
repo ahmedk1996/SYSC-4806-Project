@@ -26,6 +26,13 @@ public class StudentController {
         return "Student";
     }
 
+    @GetMapping(value = "/StudentHome")
+    public String studentHome(){
+
+
+        return "StudentHome";
+    }
+
     @GetMapping(value = "/unenrolled")
     private String studentsWithoutProjects(Model model){
 

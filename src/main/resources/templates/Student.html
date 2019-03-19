@@ -23,9 +23,9 @@
     <!--    <td><span th:text="${topic.}"> Current Student</span></td> -->
         <td><span th:number="${topic.max_Students}"> Max Student</span></td>
 
-        <td><form method="post" >
-            <input type='submit' name='join' value='Join' th:action="join" />
-            <input type='submit' name='detail' value='Detail' th:action="detail" />
+        <td><form  >
+            <button class="btn btn-outline-success" type="submit" formaction="/StudentHome">Join</button>
+            <button class="btn btn-outline-danger" type="submit" formaction="">Details</button>
         </form></td>
     </tr>
 
