@@ -25,4 +25,12 @@ public class StudentController {
         model.addAttribute( "topicList", topicRepository.findAll());
         return "Student";
     }
+
+    @GetMapping(value = "/unenrolled")
+    private String studentsWithoutProjects(Model model){
+
+        model.addAttribute("noTopic", studentRepository.findAll());
+        return "UnenrolledStudents";
+    }
+
 }
