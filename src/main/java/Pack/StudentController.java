@@ -26,11 +26,11 @@ public class StudentController {
         return "Student";
     }
 
-    @GetMapping(value = "/deadline")
+    @GetMapping(value = "/unenrolled")
     private String studentsWithoutProjects(Model model){
 
         model.addAttribute("noTopic", studentRepository.findAll());
-        return "Deadlines";
+        return "UnenrolledStudents";
     }
 
 }
