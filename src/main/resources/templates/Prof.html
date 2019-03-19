@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
@@ -10,18 +9,36 @@
 </head>
 <body>
 <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="http://localhost:8091/">SYSC 4806 Project </a>
+    <a class="navbar-brand" href="/">Professor Home </a>
     <form class="form-inline" style=" margin-left: auto;
     margin-right: auto;">
-        <button class="btn btn-outline-success" type="submit" formaction="/prof">Professor</button>
-        <button class="btn btn-outline-danger" type="submit" formaction="/add">Coordinator</button>
-        <button class="btn btn-outline-primary" type="submit" formaction="/students">Student</button>
+        <button class="btn btn-outline-primary" type="submit" formaction="/add">Add Topic</button>
     </form>
 </nav>
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<table>
+    <thead>
+    <tr>
+        <th> Topic Title </th>
+        <th> Description </th>
+        <th> Program Restriction </th>
+        <th> Max Students Allowed </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="topic : ${topic}">
+        <td><span th:text="${topic.topicName}"> Topic Title </span></td>
+        <td><span th:text="${topic.description}"> Description </span></td>
+        <td><span th:text="${topic.restrictions}"> Program Restriction </span></td>
+        <td><span th:text="${topic.max_Students}"> Max Students Allowed </span></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

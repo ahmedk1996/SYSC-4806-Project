@@ -12,6 +12,7 @@ public class Topic {
     private int id;
     private String restrictions;
 
+    private int profID;
     private String topicName;
     private String description;
     private int max_Students;
@@ -80,5 +81,12 @@ public class Topic {
     {
         String s = "Topic Description : " + getDescription() +", Program Restrictions :" + getRestrictions() + ", Maximum Number of Students :" + getMax_Students();
         return s;
+    }
+    public int getProfID() {
+        return profID;
+    }
+
+    public void setProfID(int profID) {
+        this.profID = profID;
     }
 }
