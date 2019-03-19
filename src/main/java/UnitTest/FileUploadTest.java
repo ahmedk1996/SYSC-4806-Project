@@ -1,41 +1,41 @@
 package UnitTest;
 
 
+import Pack.Application;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.mock.web.MockMultipartFile;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
-import static org.mockito.BDDMockito.then;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.fileUpload;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import Pack.serviceForStorage;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 
 @RunWith(SpringRunner.class)
-@AutoConfigureMockMvc
-@SpringBootTest
+@WebAppConfiguration
+@ContextConfiguration(classes = Application.class)
 public class FileUploadTest{
 
     @Autowired
-    private MockMvc mvc;
+    private WebApplicationContext app;
+    private MockMvc mockMVC;
 
-    @MockBean
-    private serviceForStorage storageService;
-
+    @Before
+    public void setup(){
+        this.mockMVC = MockMvcBuilders.webAppContextSetup(this.app).build();
+    }
 
     @Test
     public void shouldSaveUploadedFile() throws Exception {
-        MockMultipartFile fileMock = new MockMultipartFile("file", "UploadTest.txt",
-                "text/plain", "Spring Framework".getBytes());
-        this.mvc.perform(fileUpload("/upload").file(fileMock)).andExpect(status().isFound()).andExpect(header().string("Location", "/upload"));
 
-        then(this.storageService).should().store(fileMock);
+        this.mockMVC.perform(get("/upload")).andExpect(status().isOk()).andExpect(view().name("uploadTemplate"));
+
     }
 
 
