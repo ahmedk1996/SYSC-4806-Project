@@ -1,4 +1,4 @@
-package Pack;
+package Pack.Tests;
 
 
 import org.junit.Test;
