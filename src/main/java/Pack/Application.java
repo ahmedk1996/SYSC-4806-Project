@@ -1,14 +1,14 @@
 package Pack;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
+@EnableConfigurationProperties(propertiesForStorage.class)
 public class Application {
 
 
@@ -16,6 +16,12 @@ public class Application {
         SpringApplication.run(Application.class);
     }
 
-
+    @Bean
+    CommandLineRunner init(serviceForStorage storageService) {
+        return (args) -> {
+            storageService.deleteAll();
+            storageService.init();
+        };
+    }
 
 }
