@@ -8,7 +8,6 @@ import java.util.*;
 @Entity
 public class Prof {
 
-    @OneToMany(cascade = CascadeType.PERSIST)
     @Id
     private int id;
     private String name;
