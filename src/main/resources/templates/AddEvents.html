@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add an Event</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Add A Event Form</h1>
+<form action="#" th:action="@{/addEvents}" th:object="${event}" method="post">
+    <p>Name: Mrs. Jenna</p>
+    <p>Event Title: <input type="text" th:field="*{eventName}" /></p>
+    <p>Event Description:
+    <p><textarea input type="text" th:field="*{description}" rows="10" cols="40"></textarea></p>
+    <p>Event ID:
+    <p><textarea input type="number" th:field="*{id}" rows="10" cols="40"></textarea></p>
+    <p><input type="submit" value="Submit" /><input type="reset" value="Reset" /></p>
+</form>
+</body>
+</html>

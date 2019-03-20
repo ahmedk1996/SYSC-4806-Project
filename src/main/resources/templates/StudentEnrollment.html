@@ -2,7 +2,6 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Unenrolled Students</title>
 </head>
 <body>
 <h1>Students without Topics</h1>
@@ -16,10 +15,10 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="noTopic : ${noTopic}">
-        <td><span th:text="${noTopic.name}"> Student Name </span></td>
-        <td><span th:text="${noTopic.id}"> Student Number </span></td>
-        <td><span th:text="${noTopic.projectId} ?: 'None.' "> Enrolled Projects </span></td>
+    <tr th:each="student : ${students}">
+        <td><span th:text="${student.name}"> Student Name </span></td>
+        <td><span th:text="${student.id}"> Student Number </span></td>
+        <td><span th:text="${student.projectId} ?: 'None.' "> Enrolled Projects </span></td>
 
     </tr>
     </tbody>
