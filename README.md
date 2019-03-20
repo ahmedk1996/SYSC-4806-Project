@@ -19,7 +19,7 @@ Located in the root and named UML.png
 
 
 Project ORM:
-Located in the root and named ORM.png
+Located in the root and named Database_diagram.png
 
 
 Milestone 1:
