@@ -1,3 +1,4 @@
+/*
 package Pack;
 
 import javax.persistence.CascadeType;
@@ -65,3 +66,4 @@ public class Coordinator {
 
 
 }
+*/

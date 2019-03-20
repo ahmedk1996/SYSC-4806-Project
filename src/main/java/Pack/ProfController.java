@@ -10,6 +10,7 @@ public class ProfController {
 
     @Autowired
     ProfRepository profRepository;
+    Prof newBook;
     @Autowired
     TopicRepository topicRepository;
 
@@ -19,17 +20,13 @@ public class ProfController {
         return "Addform";
     }
 
-    @GetMapping ("/prof")
-    public String prof(Model model) {
-        model.addAttribute( "topic", topicRepository.findAll());//2do:findTopicsByProfID(prof.getProfID()) -- How to get prof??
-        return "Prof";
-    }
-
     @PostMapping("/add")
     public String addSubmit(@ModelAttribute Topic topic, Model model) {
-        topicRepository.save(topic);
-        model.addAttribute("topic", topic);
-        return "Prof";
+        Topic newTopic;
+        newTopic = topic;
+        topicRepository.save(newTopic);
+        model.addAttribute("topic", newTopic);
+        return "ProfTopicResultsForm";
     }
 
     @GetMapping ("/all")
