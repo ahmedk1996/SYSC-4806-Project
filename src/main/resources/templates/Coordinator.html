@@ -1,14 +1,43 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Hello jQuery</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="hello.js"></script>
-</head>
+    <meta charset="UTF-8">
+    <!-- Bootstrap CSS -->
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
 <body>
-<div>
-    <h1>WELCOME TO THIS PAGE WHICH IS CALLED THE HOME PAGE INDEX</h1>
-</div>
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Coordinator Home </a>
+    <form class="form-inline" style=" margin-left: auto;
+    margin-right: auto;">
+        <button class="btn btn-outline-primary" type="submit" formaction="/enrollment">Student Enrollment</button>
+    </form>
+</nav>
+
+<h1>Your Events</h1>
+<table>
+    <thead>
+    <tr>
+        <th> Event Title </th>
+        <th> Event Description </th>
+        <th> Event Deadline </th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${event.empty}">
+        <td colspan="3"> You do not have any current events </td>
+    </tr>
+    <tr th:each="event : ${event}">
+        <td><span th:text="${event.eventName}"> Event Name </span></td>
+        <td><span th:text="${event.description}"> Event Description </span></td>
+        <td><span th:text="${event.deadline}"> Deadline </span></td>
+
+
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

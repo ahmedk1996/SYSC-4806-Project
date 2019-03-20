@@ -8,7 +8,6 @@ import java.util.Optional;
 public interface StudentRepository extends CrudRepository<Student, Integer> {
 
     List<Student> findByName(String name);
-
+    List<Student> findByProjectId(int projectId);
     List<Student> findById(Student student);
-
 }

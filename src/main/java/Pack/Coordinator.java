@@ -1,5 +1,7 @@
 package Pack;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,29 +11,21 @@ import java.util.*;
 public class Coordinator {
 
 
-    public void setEvents(List<Event> events) {
-        this.events = events;
-    }
-
-    @OneToMany(cascade = CascadeType.PERSIST)
-    private List<Event> events;
+    private String name;
     @Id
     private Integer id;
 
-    public Coordinator(){
-        events = new ArrayList<Event>();
+    public Coordinator(String name, Integer id){
+        this.name=name;
+        this.id=id;
     }
 
-    public void addEvent(Event event){
-        events.add(event);
+    public String getName() {
+        return name;
     }
 
-    public void removeEvent(int index){
-
-        if(index >=0 && index < events.size() ) {
-            events.remove(index);
-
-        }
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Integer getId() {
@@ -41,27 +35,4 @@ public class Coordinator {
     public void setId(Integer id) {
         this.id = id;
     }
-
-
-    public List<Event> getEvents() {
-        return events;
-    }
-
-    public String toString(){
-
-        for(Event e: events){
-            System.out.println(""+e.getDescription()+" ");
-        }
-        return"";
-    }
-
-    public void setEvents(ArrayList<Event> events) {
-        this.events = events;
-    }
-
-    public int getSize(){
-        return events.size();
-    }
-
-
 }

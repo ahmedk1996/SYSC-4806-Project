@@ -32,12 +32,4 @@ public class StudentController {
 
         return "StudentHome";
     }
-
-    @GetMapping(value = "/unenrolled")
-    private String studentsWithoutProjects(Model model){
-
-        model.addAttribute("noTopic", studentRepository.findAll());
-        return "UnenrolledStudents";
-    }
-
 }

@@ -8,30 +8,21 @@ import javax.persistence.Id;
 public class Event {
 
     @Id
-    @GeneratedValue
     private int id;
-    private String deadline;
-
     private String eventName;
     private String description;
 
+    public Event(String eventName, String description, int id){
+        this.eventName = eventName;
+        this.description = description;
+        this.id=id;
+    }
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
-    }
-
-
-
-    public Event(){
-
-    }
-    public Event(String eventName, String description, String deadline){
-        this.eventName = eventName;
-        this.description = description;
-        this.deadline = deadline;
     }
 
     public String getEventName() {
@@ -43,14 +34,6 @@ public class Event {
     }
 
 
-    public String getDeadline() {
-        return deadline;
-    }
-
-    public void setDeadline(String deadline) {
-        this.deadline = deadline;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -60,16 +43,8 @@ public class Event {
     }
 
 
-    public boolean equals(Object t){
-        if(t instanceof Event){
-            Event event = (Event) t;
-            return  event.description.equals(this.description) && event.deadline.equals(this.deadline);
-        }
-        return false;
-    }
     public String toString()
     {
-        String s = "Event Name : " + getEventName()+ "Event Description : " + getDescription() +", Event Deadline: " + getDeadline();
-        return s;
+        return  "Event Name : " + getEventName()+ "Event Description : " + getDescription();
     }
 }

@@ -11,27 +11,29 @@ public class CoordinatorController {
 
     @Autowired
     EventRepository eventRepository;
+    @Autowired
+    StudentRepository studentRepository;
 
     @GetMapping ("/coordinator")
     public String coordinatorForm(Model model) {
-        model.addAttribute("event", new Event());
+        model.addAttribute( "event", eventRepository.findAll());
         return "Coordinator";
     }
 
-    @PostMapping("/addEvents")
-    public String addSubmit(@ModelAttribute Event event, Model model) {
-        Event newEvent;
-        newEvent = event;
-        eventRepository.save(newEvent);
-        model.addAttribute("event", newEvent);
+    @GetMapping(value = "/enrollment")
+    private String studentsWithoutProjects(Model model){
+        model.addAttribute("students", studentRepository.findAll());
+        return "StudentEnrollment";
+    }
+
+    @GetMapping ("/createEvent")
+    public String createEvent (Model model){
         return "AddEvents";
     }
-
-    @GetMapping ("/allevents")
-    public String displayEvents (Model model,@ModelAttribute Event event){
-        model.addAttribute( "event", eventRepository.findAll());
-        return "DisplayEvents";
+    @PostMapping("/createEvent")
+    public String addSubmit(@ModelAttribute Event event, Model model) {
+        eventRepository.save(event);
+        model.addAttribute("event", event);
+        return "AddEvents";
     }
-
-
 }
