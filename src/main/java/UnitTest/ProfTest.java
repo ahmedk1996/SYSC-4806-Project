@@ -2,7 +2,6 @@ package UnitTest;
 
 import Pack.Application;
 import Pack.Prof;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.junit.Test;
@@ -27,8 +26,8 @@ public class ProfTest {
     private Prof testProf;
     @Before
     public void setUp() throws Exception {
-            this.mockMVC = MockMvcBuilders.webAppContextSetup(this.app).build();
-            testProf = new Prof("Mr.Testy", 1);
+        this.mockMVC = MockMvcBuilders.webAppContextSetup(this.app).build();
+        testProf = new Prof("Mr.Testy", 1);
     }
 
     @Test
