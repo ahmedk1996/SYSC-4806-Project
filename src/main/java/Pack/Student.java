@@ -46,7 +46,7 @@ public class Student {
     }
 
     public void setProjectId(Integer projectId) {
-        projectId = projectId;
+        this.projectId = projectId;
     }
 
     public String getProgram() {
