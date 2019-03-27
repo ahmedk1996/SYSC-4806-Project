@@ -3,6 +3,8 @@ package Pack;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Topic {
@@ -16,6 +18,17 @@ public class Topic {
     private String topicName;
     private String description;
     private int max_Students;
+    private List<Student>studentList;
+
+    public boolean isAvailable() {
+        return availability;
+    }
+
+    public void setAvailability(boolean availability) {
+        this.availability = availability;
+    }
+
+    private boolean availability;
 
     public int getId() {
         return id;
@@ -25,8 +38,6 @@ public class Topic {
         this.id = id;
     }
 
-
-
     public Topic(){
 
     }
@@ -35,6 +46,16 @@ public class Topic {
         this.description = description;
         this.max_Students = max_Students;
         this.restrictions = restrictions;
+        this.studentList = new ArrayList<>();
+        availability = true;
+    }
+
+    public List<Student> getStudentList() {
+        return studentList;
+    }
+
+    public void setStudentList(List<Student> studentList) {
+        this.studentList = studentList;
     }
 
     public String getTopicName() {
@@ -70,6 +91,19 @@ public class Topic {
         this.max_Students = max_Students;
     }
 
+
+    public boolean isFull(){
+        if(max_Students <= studentList.size()){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    public Integer getCurrentStudentNumber(){
+        return studentList.size();
+    }
+
     public boolean equals(Object t){
         if(t instanceof Topic){
             Topic topic = (Topic) t;
@@ -89,4 +123,6 @@ public class Topic {
     public void setProfID(int profID) {
         this.profID = profID;
     }
+
+
 }
