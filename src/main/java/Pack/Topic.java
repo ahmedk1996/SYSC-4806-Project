@@ -3,6 +3,7 @@ package Pack;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 public class Topic {
@@ -30,7 +31,7 @@ public class Topic {
     public Topic(){
 
     }
-    public Topic(String topicName, String description, String restrictions , int max_Students){
+    public Topic(String topicName, String description, String restrictions , int max_Students, Date start, Date end){
         this.topicName = topicName;
         this.description = description;
         this.max_Students = max_Students;
