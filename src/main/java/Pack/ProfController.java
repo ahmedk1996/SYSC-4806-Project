@@ -28,7 +28,7 @@ public class ProfController {
     @PostMapping("/add")
     public String addSubmit(@ModelAttribute Topic topic, Model model) {
         topicRepository.save(topic);
-        model.addAttribute("topic", topic);
+        model.addAttribute("topic", topicRepository.findAll());
         return "Prof";
     }
 
