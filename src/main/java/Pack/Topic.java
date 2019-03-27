@@ -1,5 +1,7 @@
 package Pack;
 
+import org.w3c.dom.DOMStringList;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,6 +19,7 @@ public class Topic {
     private String topicName;
     private String description;
     private int max_Students;
+    private Date start;
 
     public int getId() {
         return id;
@@ -31,7 +34,7 @@ public class Topic {
     public Topic(){
 
     }
-    public Topic(String topicName, String description, String restrictions , int max_Students, Date start, Date end){
+    public Topic(String topicName, String description, String restrictions , int max_Students){
         this.topicName = topicName;
         this.description = description;
         this.max_Students = max_Students;
