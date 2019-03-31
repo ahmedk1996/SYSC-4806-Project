@@ -31,6 +31,9 @@ public class ProfController {
     @PostMapping("/add")
     public String addSubmit(@ModelAttribute Topic topic, Model model) {
         topicRepository.save(topic);
+        System.out.println("***************" + topic.getPreference1());
+        System.out.println("***************" + topic.getPreference2());
+        System.out.println("***************" + topic.getPreference3());
         model.addAttribute("topic", topic);
         return "Prof";
     }
