@@ -3,6 +3,8 @@ package Pack;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.ArrayList;
+
 
 @Entity
 public class Topic {
@@ -16,6 +18,20 @@ public class Topic {
     private String topicName;
     private String description;
     private int max_Students;
+
+    private ArrayList<Student> studentList;
+    private ArrayList<String> announcement;
+
+    public boolean isAvailable() {
+        return availability;
+    }
+
+    public void setAvailability(boolean availability) {
+        this.availability = availability;
+    }
+
+    private boolean availability;
+
 
     public int getId() {
         return id;
@@ -35,6 +51,46 @@ public class Topic {
         this.description = description;
         this.max_Students = max_Students;
         this.restrictions = restrictions;
+
+        this.studentList = new ArrayList<>();
+        this.availability = true;
+        this.announcement =  new ArrayList<>();
+    }
+
+    public ArrayList<String> getAnnouncementList() {
+        return announcement;
+    }
+    public Boolean addStudent(Student student){
+        if(this.isFull()){
+            return false;
+        }else{
+            this.studentList.add(student);
+            return true;
+        }
+    }
+
+    public boolean isFull() {
+        if(max_Students <= studentList.size()){
+            return true;
+        }else
+            return false;
+    }
+
+    public void addAnnouncement(String announcement) {
+        this.announcement.add(announcement);
+    }
+
+    public boolean isAvailability() {
+        return availability;
+    }
+
+    public ArrayList<Student> getStudentList() {
+        return studentList;
+    }
+
+    public void setStudentList(ArrayList<Student> studentList) {
+        this.studentList = studentList;
+
     }
 
     public String getTopicName() {
