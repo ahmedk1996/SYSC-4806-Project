@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class Topic {
@@ -18,8 +17,8 @@ public class Topic {
     private String topicName;
     private String description;
     private int max_Students;
-    private List<Student>studentList;
-    private List<String> announcement;
+    private ArrayList<Student> studentList;
+    private ArrayList<String> announcement;
 
     public boolean isAvailable() {
         return availability;
@@ -54,7 +53,7 @@ public class Topic {
         this.announcement =  new ArrayList<>();
     }
 
-    public List<String> getAnnouncementList() {
+    public ArrayList<String> getAnnouncementList() {
         return announcement;
     }
     public Boolean addStudent(Student student){
@@ -74,11 +73,11 @@ public class Topic {
         return availability;
     }
 
-    public List<Student> getStudentList() {
+    public ArrayList<Student> getStudentList() {
         return studentList;
     }
 
-    public void setStudentList(List<Student> studentList) {
+    public void setStudentList(ArrayList<Student> studentList) {
         this.studentList = studentList;
     }
 
