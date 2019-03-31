@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+
 @Controller
 public class ProfController {
 
@@ -12,6 +14,7 @@ public class ProfController {
     ProfRepository profRepository;
     @Autowired
     TopicRepository topicRepository;
+    Date date;
 
     @GetMapping ("/add")
     public String addForm(Model model) {
@@ -38,5 +41,23 @@ public class ProfController {
         return "Display";
     }
 
+    @GetMapping("/date")
+    public  String pickDate (Model model){
+
+        model.addAttribute("start", new String());
+        model.addAttribute("end", new String());
+
+        //model.addAttribute("date", new Date());
+        return "datePicker";
+    }
+
+    @PostMapping("/date")
+    public String datePicked (Model model, @ModelAttribute String start, @ModelAttribute String end){
+        String s = start.toString();
+        String f = end.toString();
+        System.out.println("****************" + s + f + "*********************");
+        //Date projectStart = start.
+        return "dateConfirmed";
+    }
 
 }
