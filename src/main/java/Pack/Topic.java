@@ -69,6 +69,13 @@ public class Topic {
         }
     }
 
+    public boolean isFull() {
+        if(max_Students <= studentList.size()){
+            return true;
+        }else
+            return false;
+    }
+
     public void addAnnouncement(String announcement) {
         this.announcement.add(announcement);
     }
