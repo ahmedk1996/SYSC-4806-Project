@@ -41,7 +41,7 @@ public class CoordinatorController {
 
     @GetMapping ("/addNotifications")
     public String createNotification (Model model, Topic topic){
-        model.addAttribute("topic", topicRepository);
+        model.addAttribute("topic", topicRepository.findById(topic.getId()));
         return "addNotifications";
     }
     @PostMapping("/addNotifications")
