@@ -10,14 +10,18 @@
 </head>
 <body>
 <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="http://localhost:8091/">SYSC 4806 Project </a>
+    <a class="navbar-brand" style="color:white" th:inline = "text">Welcome [[${#httpServletRequest.remoteUser}]]!  </a>
     <form class="form-inline" style=" margin-left: auto;
     margin-right: auto;">
         <button class="btn btn-outline-success" type="submit" formaction="/prof">Professor</button>
         <button class="btn btn-outline-danger" type="submit" formaction="/coordinator">Coordinator</button>
         <button class="btn btn-outline-primary" type="submit" formaction="/StudentHome">Student</button>
     </form>
+    <form th:action = "@{/logout}" method = "post">
+        <input class="btn btn-outline-warning" type = "submit" value = "Sign Out"/>
+    </form>
 </nav>
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
