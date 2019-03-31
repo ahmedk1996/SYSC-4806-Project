@@ -32,9 +32,9 @@ public class ProfController {
     public String addSubmit(@ModelAttribute Topic topic, Model model) {
         topicRepository.save(topic);
         model.addAttribute("topic", topicRepository.findAll());
-        System.out.println("***************" + topic.getPreference1());
-        System.out.println("***************" + topic.getPreference2());
-        System.out.println("***************" + topic.getPreference3());
+        //System.out.println("***************" + topic.getPreference1());
+        //System.out.println("***************" + topic.getPreference2());
+        //System.out.println("***************" + topic.getPreference3());
         return "Prof";
     }
 
