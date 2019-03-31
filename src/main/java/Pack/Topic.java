@@ -54,8 +54,16 @@ public class Topic {
         this.announcement =  new ArrayList<>();
     }
 
-    public List<String> Announcement() {
+    public List<String> getAnnouncementList() {
         return announcement;
+    }
+    public Boolean addStudent(Student student){
+        if(this.isFull()){
+            return false;
+        }else{
+            this.studentList.add(student);
+            return true;
+        }
     }
 
     public void addAnnouncement(String announcement) {
@@ -110,9 +118,9 @@ public class Topic {
 
     public boolean isFull(){
         if(max_Students <= studentList.size()){
-            return false;
-        }else{
             return true;
+        }else{
+            return false;
         }
     }
 
@@ -139,6 +147,5 @@ public class Topic {
     public void setProfID(int profID) {
         this.profID = profID;
     }
-
 
 }
