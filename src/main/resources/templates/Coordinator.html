@@ -16,24 +16,26 @@
     </form>
 </nav>
 
-<h1>Your Events</h1>
+<h1>Student Topics</h1>
 <table>
     <thead>
     <tr>
-        <th> Event Title </th>
-        <th> Event Description </th>
-        <th> Event Deadline </th>
+        <th> Topic Title </th>
+        <th> Topic Description </th>
+        <th> Topic Restrictions </th>
+        <th> Topic Max Students </th>
 
     </tr>
     </thead>
     <tbody>
-    <tr th:if="${event.empty}">
-        <td colspan="3"> You do not have any current events </td>
-    </tr>
-    <tr th:each="event : ${event}">
-        <td><span th:text="${event.eventName}"> Event Name </span></td>
-        <td><span th:text="${event.description}"> Event Description </span></td>
-        <td><span th:text="${event.deadline}"> Deadline </span></td>
+
+    <tr th:each="topic : ${topic}">
+        <td><span th:text="${topic.topicName}"> Topic Title </span></td>
+        <td><span th:text="${topic.description}"> Description </span></td>
+        <td><span th:text="${topic.restrictions}"> Program Restriction </span></td>
+        <td><span th:text="${topic.max_Students}"> Max Students Allowed </span></td>
+        <td> <button class="btn btn-outline-danger" type="submit" formaction="/addNotifications">Add Notification</button>
+        </td>
 
 
     </tr>
