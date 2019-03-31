@@ -3,6 +3,8 @@ package Pack;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Topic {
@@ -16,6 +18,18 @@ public class Topic {
     private String topicName;
     private String description;
     private int max_Students;
+    private List<Student>studentList;
+    private List<String> announcement;
+
+    public boolean isAvailable() {
+        return availability;
+    }
+
+    public void setAvailability(boolean availability) {
+        this.availability = availability;
+    }
+
+    private boolean availability;
 
     public int getId() {
         return id;
@@ -25,16 +39,47 @@ public class Topic {
         this.id = id;
     }
 
-
-
     public Topic(){
 
     }
+
+
     public Topic(String topicName, String description, String restrictions , int max_Students){
         this.topicName = topicName;
         this.description = description;
         this.max_Students = max_Students;
         this.restrictions = restrictions;
+        this.studentList = new ArrayList<>();
+        this.availability = true;
+        this.announcement =  new ArrayList<>();
+    }
+
+    public List<String> getAnnouncementList() {
+        return announcement;
+    }
+    public Boolean addStudent(Student student){
+        if(this.isFull()){
+            return false;
+        }else{
+            this.studentList.add(student);
+            return true;
+        }
+    }
+
+    public void addAnnouncement(String announcement) {
+        this.announcement.add(announcement);
+    }
+
+    public boolean isAvailability() {
+        return availability;
+    }
+
+    public List<Student> getStudentList() {
+        return studentList;
+    }
+
+    public void setStudentList(List<Student> studentList) {
+        this.studentList = studentList;
     }
 
     public String getTopicName() {
@@ -70,6 +115,19 @@ public class Topic {
         this.max_Students = max_Students;
     }
 
+
+    public boolean isFull(){
+        if(max_Students <= studentList.size()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public Integer getCurrentStudentNumber(){
+        return studentList.size();
+    }
+
     public boolean equals(Object t){
         if(t instanceof Topic){
             Topic topic = (Topic) t;
@@ -89,4 +147,5 @@ public class Topic {
     public void setProfID(int profID) {
         this.profID = profID;
     }
+
 }

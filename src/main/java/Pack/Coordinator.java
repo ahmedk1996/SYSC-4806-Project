@@ -1,12 +1,7 @@
 package Pack;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import java.util.*;
 @Entity
 public class Coordinator {
 
