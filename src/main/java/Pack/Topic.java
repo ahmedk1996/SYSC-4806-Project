@@ -30,6 +30,7 @@ public class Topic {
     public Topic(){
 
     }
+
     public Topic(String topicName, String description, String restrictions , int max_Students){
         this.topicName = topicName;
         this.description = description;
