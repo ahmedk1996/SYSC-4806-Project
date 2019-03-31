@@ -45,9 +45,9 @@ public class CoordinatorController {
         return "addNotifications";
     }
     @PostMapping("/addNotifications")
-    public String submitNotification(@ModelAttribute Topic event, Model model) {
-        eventRepository.save(event);
-        model.addAttribute("notification", event);
+    public String submitNotification(@ModelAttribute Topic topic, Model model) {
+        topicRepository.save(topic);
+        model.addAttribute("notification", topic);
         return "addNotifications";
     }
 
