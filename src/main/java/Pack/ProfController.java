@@ -34,7 +34,8 @@ public class ProfController {
         System.out.println("***************" + topic.getPreference1());
         System.out.println("***************" + topic.getPreference2());
         System.out.println("***************" + topic.getPreference3());
-        model.addAttribute("topic", topic);
+       // model.addAttribute("topic", topic);
+        model.addAttribute("topic", topicRepository.findAll());
         return "Prof";
     }
 
