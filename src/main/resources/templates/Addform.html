@@ -14,9 +14,16 @@
     <p>Topic Restrictions:
     <p><textarea input type="text" th:field="*{restrictions}" rows="10" cols="40"></textarea></p>
     <p>Max. Desired Students: <input type="number" th:field="*{max_Students}" /></p>
-    <p>Project Start Date:<input type="date" class="date"/></p>
+    <p>Project Start Date:<input type="date" id="myDate"></p>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myDate").value;
+            document.getElementById("demo").innerHTML = x;
+        }
+    </script>
     <p>Project End Date: <input type="date"/></p>
-    <p><input type="submit" value="Submit" /><input type="reset" value="Reset" /></p>
+    <p><input type="submit" value="Submit" /><input type="reset" value="Reset" onclick="myFunction()"/></p>
 </form>
+
 </body>
 </html>
