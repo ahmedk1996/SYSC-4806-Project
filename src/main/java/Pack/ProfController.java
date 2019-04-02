@@ -22,21 +22,20 @@ public class ProfController {
         return "Addform";
     }
 
+    @PostMapping("/add")
+    public String addSubmit(@ModelAttribute Topic topic, Model model) {
+        topicRepository.save(topic);
+        model.addAttribute("topic", topicRepository.findAll());
+        return "Prof";
+    }
+
     @GetMapping ("/prof")
     public String prof(Model model) {
         model.addAttribute( "topic", topicRepository.findAll());//2do:findTopicsByProfID(prof.getProfID()) -- How to get prof??
         return "Prof";
     }
 
-    @PostMapping("/add")
-    public String addSubmit(@ModelAttribute Topic topic, Model model) {
-        topicRepository.save(topic);
-        model.addAttribute("topic", topicRepository.findAll());
-        //System.out.println("***************" + topic.getPreference1());
-        //System.out.println("***************" + topic.getPreference2());
-        //System.out.println("***************" + topic.getPreference3());
-        return "Prof";
-    }
+
 
     @GetMapping ("/all")
     public String display (Model model,@ModelAttribute Topic topic){
@@ -44,23 +43,5 @@ public class ProfController {
         return "Display";
     }
 
-    @GetMapping("/date")
-    public  String pickDate (Model model){
-
-        model.addAttribute("start", new String());
-        model.addAttribute("end", new String());
-
-        //model.addAttribute("date", new Date());
-        return "datePicker";
-    }
-
-    @PostMapping("/date")
-    public String datePicked (Model model, @ModelAttribute String start, @ModelAttribute String end){
-        String s = start.toString();
-        String f = end.toString();
-        System.out.println("****************" + s + f + "*********************");
-        //Date projectStart = start.
-        return "dateConfirmed";
-    }
 
 }

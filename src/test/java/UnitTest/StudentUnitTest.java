@@ -1,6 +1,7 @@
 package UnitTest;
 
 import Pack.Application;
+import Pack.AvailabilityDate;
 import Pack.Student;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,10 +26,15 @@ public class StudentUnitTest {
     private WebApplicationContext app;
     private MockMvc mockMVC;
     private Student stu;
+    private AvailabilityDate date;
 
     @Before
     public void setup() {
         stu = new Student("AK", 101008206, "Software Engineering");
+        date = new AvailabilityDate();
+        date.setDate1("2019-04-27T04:24");
+        date.setDate2("2018-12-21T21:34");
+        date.setDate3("1997-05-27T03:00");
     }
 
     @Test
@@ -56,6 +62,53 @@ public class StudentUnitTest {
     public void getProgramTest(){
         assertEquals("Expected output is Software Engineering", "Software Engineering", stu.getProgram());
     }
+
+    @Test
+    public void checkPreferenceDate1(){
+        assertEquals("2019-04-27T04:24", date.getDate1());
+    }
+
+    @Test
+    public void checkPreferenceDate2(){
+        assertEquals("2018-12-21T21:34", date.getDate2());
+    }
+
+    @Test
+    public void checkPreferenceDate3(){
+        assertEquals("1997-05-27T03:00", date.getDate3());
+    }
+
+
+    @Test
+    public void checkFormattedDate1(){
+        assertEquals("2019-04-27", date.getnewDate1());
+    }
+
+    @Test
+    public void checkFormattedDate2(){
+        assertEquals("2018-12-21", date.getnewDate2());
+    }
+
+    @Test
+    public void checkFormattedDate3(){
+        assertEquals("1997-05-27", date.getnewDate3());
+    }
+
+    @Test
+    public void checkFormattedTime1(){
+        assertEquals("04:24", date.getnewTime1());
+    }
+
+    @Test
+    public void checkFormattedTime2(){
+        assertEquals("21:34", date.getnewTime2());
+    }
+
+    @Test
+    public void checkFormattedTime3(){
+        assertEquals("03:00", date.getnewTime3());
+    }
+
 
 
 }
