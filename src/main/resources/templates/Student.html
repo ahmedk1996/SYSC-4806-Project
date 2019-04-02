@@ -17,6 +17,7 @@
     </tr>
     </thead>
     <tbody>
+    <!--/*@thymesVar id="topicList" type=""*/-->
     <tr th:each="topic : ${topicList}">
         <td><span th:text="${topic.description}"> Description </span></td>
         <td><span th:text="${topic.restrictions}"> Restrictions </span></td>

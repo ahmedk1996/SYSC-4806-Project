@@ -3,15 +3,13 @@ package Pack;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Iterator;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/StudentHome")
 public class StudentController {
 
     @Autowired
@@ -19,17 +17,37 @@ public class StudentController {
     @Autowired
     private StudentRepository studentRepository;
 
-    @GetMapping(value = "/students")
-    public String display ( Model model){
-
-        model.addAttribute( "topicList", topicRepository.findAll());
-        return "Student";
+    @GetMapping()
+    public String studentName(Model model){
+        String name= "Hunho Ha";
+        model.addAttribute("name",name);
+        return "StudentHome";
     }
 
-    @GetMapping(value = "/StudentHome")
-    public String studentHome(){
 
+    @GetMapping("/")
+    public String studentHome(){
+        return "StudentHome";
+    }
+
+//    @GetMapping
+//    public String getList (Model model){
+//       model.addAttribute("topic", topicRepository.findAll());
+//       return "StudentHome";
+//    }
+
+    @PostMapping("/display")
+    public String display(Model model,@ModelAttribute Topic topic){
+
+        model.addAttribute("topic", topicRepository.findAll());
 
         return "StudentHome";
     }
+
+
+
+
+
+
+
 }

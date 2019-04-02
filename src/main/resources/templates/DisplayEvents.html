@@ -16,15 +16,15 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:if="${event.empty}">
-        <td colspan="3"> You do not have any current events </td>
-    </tr>
     <tr th:each="event : ${event}">
         <td><span th:text="${event.eventName}"> Event Name </span></td>
         <td><span th:text="${event.description}"> Event Description </span></td>
         <td><span th:text="${event.deadline}"> Deadline </span></td>
 
 
+    </tr>
+    <tr th:if="${event.empty}">
+        <td colspan="3"> You do not have any current events </td>
     </tr>
     </tbody>
 </table>

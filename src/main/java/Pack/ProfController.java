@@ -16,6 +16,7 @@ public class ProfController {
     @GetMapping ("/add")
     public String addForm(Model model) {
         model.addAttribute("topic", new Topic());
+        //topicRepository.save(topic);
         return "Addform";
     }
 
