@@ -13,6 +13,7 @@
     <form class="form-inline" style=" margin-left: auto;
     margin-right: auto;">
         <button class="btn btn-outline-primary" type="submit" formaction="/enrollment">Student Enrollment</button>
+        <button class="btn btn-outline-primary" type="submit" formaction="/projectDeadline">Project Deadline</button>
     </form>
 </nav>
 
@@ -27,15 +28,10 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:if="${event.empty}">
-        <td colspan="3"> You do not have any current events </td>
-    </tr>
     <tr th:each="event : ${event}">
         <td><span th:text="${event.eventName}"> Event Name </span></td>
         <td><span th:text="${event.description}"> Event Description </span></td>
         <td><span th:text="${event.deadline}"> Deadline </span></td>
-
-
     </tr>
     </tbody>
 </table>

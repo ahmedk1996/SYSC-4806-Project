@@ -1,9 +1,15 @@
 package Pack;
+import java.text.DateFormat;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Controller
 public class CoordinatorController {
@@ -13,6 +19,7 @@ public class CoordinatorController {
     EventRepository eventRepository;
     @Autowired
     StudentRepository studentRepository;
+
 
     @GetMapping ("/coordinator")
     public String coordinatorForm(Model model) {
@@ -36,4 +43,23 @@ public class CoordinatorController {
         model.addAttribute("event", event);
         return "AddEvents";
     }
+
+    @GetMapping (value = "/projectDeadline")
+    public String projectDeadline(Model model){
+
+        model.addAttribute("deadline", new AvailabilityDate());
+
+
+        return "projectDeadline";
+    }
+
+    @PostMapping (value= "/projectDeadline")
+    public String deadline(@ModelAttribute AvailabilityDate dates, Model model) throws ParseException {
+        String s = dates.getnewDate1().replace('-','/');
+        Date date1=new SimpleDateFormat("yyyy/MM/dd").parse(s);
+        System.out.println(date1);
+        model.addAttribute("date", dates);
+        return "Coordinator";
+    }
+
 }
