@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class ProfController {
 
-    private static final String downloadDirectory = "C:/";
-    private static final String downloadedFileName = "projectsubmission.pdf";
+
     @Autowired
     ProfRepository profRepository;
     @Autowired
@@ -31,19 +30,21 @@ public class ProfController {
     public String archive(@RequestParam int topicId) {
         Topic topic = topicRepository.findById(topicId);
         topic.setAvailability(false);
-        return "Prof";
+        topicRepository.save(topic);
+        return "redirect:/prof";
     }
 
     @GetMapping ("/activate")
     public String activate(@RequestParam int topicId) {
         Topic topic = topicRepository.findById(topicId);
         topic.setAvailability(true);
-        return "Prof";
+        topicRepository.save(topic);
+        return "redirect:/prof";
     }
     @GetMapping ("/delete")
     public String delete(@RequestParam int topicId) {
         topicRepository.deleteById(topicId);
-        return "Prof";
+        return "redirect:/prof";
     }
     @GetMapping ("/prof")
     public String prof(Model model) {
