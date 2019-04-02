@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+
 @Controller
 public class ProfController {
 
@@ -12,17 +14,12 @@ public class ProfController {
     ProfRepository profRepository;
     @Autowired
     TopicRepository topicRepository;
+    Date date;
 
     @GetMapping ("/add")
     public String addForm(Model model) {
         model.addAttribute("topic", new Topic());
         return "Addform";
-    }
-
-    @GetMapping ("/prof")
-    public String prof(Model model) {
-        model.addAttribute( "topic", topicRepository.findAll());//2do:findTopicsByProfID(prof.getProfID()) -- How to get prof??
-        return "Prof";
     }
 
     @PostMapping("/add")
@@ -37,6 +34,16 @@ public class ProfController {
 //        model.addAttribute( "topic", topicRepository.findAll());
 //        return "Display";
 //    }
+
+    @GetMapping ("/prof")
+    public String prof(Model model) {
+        model.addAttribute( "topic", topicRepository.findAll());//2do:findTopicsByProfID(prof.getProfID()) -- How to get prof??
+        return "Prof";
+    }
+
+
+
+
 
 
 }

@@ -1,7 +1,5 @@
-
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
     <title >Welcome Student: Ahmed</title>
@@ -14,8 +12,13 @@
     margin-right: auto;">
         <button class="btn btn-outline-success" type="submit" formaction="/upload">Upload 4th Year Report</button>
         <button class="btn btn-outline-danger" type="submit" formaction="/">Home</button>
-        <button class="btn btn-outline-primary" type="submit" formaction="/dateSubmit">Submit Availability</button>
     </form>
 </nav>
+<form action="#" th:action="@{/dateSubmit}" th:object="${date}" method="post">
+    <p>Preference #1 <input type="datetime-local" th:field="*{date1}" /></p>
+    <p>Preference #2 <input type="datetime-local" th:field="*{date2}" /></p>
+    <p>Preference #3 <input type="datetime-local" th:field="*{date3}" /></p>
+    <p><input type="submit" value="Submit" /><input type="reset" value="Reset" /></p>
+</form>
 </body>
 </html>
