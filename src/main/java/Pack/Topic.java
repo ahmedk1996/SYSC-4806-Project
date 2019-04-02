@@ -20,7 +20,7 @@ public class Topic {
     private int max_Students;
 
     private ArrayList<Student> studentList;
-    private ArrayList<String> announcement;
+    private String announcement;
 
     public boolean isAvailable() {
         return availability;
@@ -46,18 +46,22 @@ public class Topic {
     public Topic(){
 
     }
+
+    public void setAnnouncement(String announcement) {
+        this.announcement = announcement;
+    }
+
     public Topic(String topicName, String description, String restrictions , int max_Students){
         this.topicName = topicName;
         this.description = description;
         this.max_Students = max_Students;
         this.restrictions = restrictions;
-
         this.studentList = new ArrayList<>();
         this.availability = true;
-        this.announcement =  new ArrayList<>();
+        this.announcement =  new String();
     }
 
-    public ArrayList<String> getAnnouncementList() {
+    public String getAnnouncement() {
         return announcement;
     }
     public Boolean addStudent(Student student){
@@ -76,9 +80,9 @@ public class Topic {
             return false;
     }
 
-    public void addAnnouncement(String announcement) {
-        this.announcement.add(announcement);
-    }
+//    public void addAnnouncement(String announcement) {
+//        this.announcement.add(announcement);
+//    }
 
     public boolean isAvailability() {
         return availability;
