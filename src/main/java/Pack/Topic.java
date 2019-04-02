@@ -78,6 +78,10 @@ public class Topic {
     }
 
 
+    public void setAnnouncement(String announcement) {
+        this.announcement = announcement;
+    }
+
     public Topic(String topicName, String description, String restrictions , int max_Students){
         this.topicName = topicName;
         this.description = description;
@@ -186,4 +190,6 @@ public class Topic {
     public void setProfID(int profID) {
         this.profID = profID;
     }
+
+
 }
