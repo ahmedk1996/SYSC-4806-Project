@@ -19,6 +19,7 @@ public class CoordinatorController {
     EventRepository eventRepository;
     @Autowired
     StudentRepository studentRepository;
+    public static Date date;
 
 
     @GetMapping ("/coordinator")
@@ -56,8 +57,9 @@ public class CoordinatorController {
     @PostMapping (value= "/projectDeadline")
     public String deadline(@ModelAttribute AvailabilityDate dates, Model model) throws ParseException {
         String s = dates.getnewDate1().replace('-','/');
-        Date date1=new SimpleDateFormat("yyyy/MM/dd").parse(s);
-        System.out.println(date1);
+        Date date1 = new SimpleDateFormat("yyyy/MM/dd").parse(s);
+        System.out.println("Deadline is: " + date1);
+        date = date1;
         model.addAttribute("date", dates);
         return "Coordinator";
     }
