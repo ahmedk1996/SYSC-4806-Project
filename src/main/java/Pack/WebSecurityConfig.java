@@ -31,6 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/professor").hasRole("PROFESSOR")
                 .antMatchers("/all").hasRole("PROFESSOR")
+                .antMatchers("/allStudents").hasRole("PROFESSOR")
                 .antMatchers("/add").hasRole("PROFESSOR")
                 .antMatchers("/display").hasRole("PROFESSOR")
                 .antMatchers("/date").hasRole("PROFESSOR")
