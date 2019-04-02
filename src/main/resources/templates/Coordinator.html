@@ -24,7 +24,7 @@
         <th> Topic Description </th>
         <th> Topic Restrictions </th>
         <th> Topic Max Students </th>
-        <th>t </th>
+        <th> Notifications </th>
     </tr>
     </thead>
     <tbody>
@@ -34,14 +34,18 @@
         <td><span th:text="${topic.description}"> Description </span></td>
         <td><span th:text="${topic.restrictions}"> Program Restriction </span></td>
         <td><span th:text="${topic.max_Students}"> Max Students Allowed </span></td>
-        <td><span th:text="${topic.announcement}">t </span></td>
-        <td> <form> <button class="btn btn-outline-success" type="submit"  formaction="/notifyForm">Add Notification</button>
-        </form>  </td>
+        <td><span th:text="${topic.announcement}"> Notifications </span></td>
+
 
 
 
     </tr>
+    <form action="#" th:action="@{notifyForm}" method="get">
+        <input type="text"  placeholder="Topic Name" th:name="topicName" th:value="${topicName}" />
 
+        <input type="text"  placeholder="Notification" th:name="notification" th:value="*{announcement}" />
+        <input type="submit" value="Notify!!"/>
+    </form>
     </tbody>
 </table>
 </body>

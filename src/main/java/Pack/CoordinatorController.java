@@ -49,19 +49,20 @@ public class CoordinatorController {
 //        //model.addAttribute( "noti", topicRepository.findByTopicName("f"));
 //        return "addNotifications";
 //    }
-    @GetMapping ("/notifyForm")
-    public String notifyForm(Model model) {
-        String announcement = new String();
-        model.addAttribute( "noti", announcement);
-        return "addNotifications";
-    }
+//    @GetMapping ("/notifyForm")
+//    public String notifyForm(Model model) {
+//        String announcement = new String();
+//        model.addAttribute( "noti", announcement);
+//        return "addNotifications";
+//    }
 
-    @PostMapping("/notifyForm")
-    public String submitNotification(@ModelAttribute String noti, Model model) {
-        Topic temp = (Topic) topicRepository.findByTopicName("f");
-        temp.setAnnouncement(noti);
+    @GetMapping ("/notifyForm")
+        public String submitNotification(@RequestParam String topicName,@RequestParam String notification) {
+        Topic temp = topicRepository.findByTopicName(topicName);
+        temp.setAnnouncement(notification);
         topicRepository.save(temp);
-        return "Coordinator" ;
+
+        return "redirect:/coordinator" ;
     }
 
 }
