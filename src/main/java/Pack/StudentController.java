@@ -27,9 +27,22 @@ public class StudentController {
     }
 
     @GetMapping(value = "/StudentHome")
-    public String studentHome(){
-
+    public String studentHome(Model model){
 
         return "StudentHome";
+    }
+
+    @GetMapping(value= "/dateSubmit")
+    public String dateSubmit(Model model){
+        model.addAttribute("date", new AvailabilityDate());
+
+        return "datePicker";
+    }
+
+
+    @PostMapping(value = "/dateSubmit")
+    public String studentDate(@ModelAttribute AvailabilityDate dates, Model model){
+        model.addAttribute("dates", dates);
+        return "dateConfirmed";
     }
 }
