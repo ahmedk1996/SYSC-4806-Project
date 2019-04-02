@@ -30,12 +30,13 @@
     </thead>
     <tbody>
     <tr th:each="topic : ${topicList}">
+        <td><span th:text="${topic.topicName}"> Topic Title </span></td>
         <td><span th:text="${topic.description}"> Description </span></td>
-        <td><span th:text="${topic.restrictions}"> Restrictions </span></td>
-        <td><span th:number="${topic.max_Students}"> Max Student</span></td>
+        <td><span th:text="${topic.restrictions}"> Program Restriction </span></td>
+        <td><span th:text="${topic.max_Students}"> Max Students Allowed </span></td>
         <td><form >
             <input method="get" type='submit' name='join' value='Join' formaction="/join" />
-            <input method="post" type='submit' name='detail' value='Detail' formaaction="/detail" />
+            <input method="post" type='submit' name='detail' value='Detail' formaction="/detail" />
         </form></td>
     </tr>
     </tbody>

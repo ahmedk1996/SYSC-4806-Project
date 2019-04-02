@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title >Student HomePage</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" >
 </head>
 <body>
 <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" style=" color:white;">Topic Detail : ${topic.description} </a>
+    <a class="navbar-brand" style=" color:white;" th:text="${topicName}" >Project Detail : </a>
     <form class="form-inline" style=" margin-left: auto;
     margin-right: auto;">
-        <button class="btn btn-outline-success" type="submit" formaction="/upload">Upload 4th Year Report</button>
         <button class="btn btn-outline-danger" type="submit" formaction="/">Home</button>
+     <!--   <button class="btn btn-outline-success" type="submit" formaction="/upload">Upload 4th Year Report</button> -->
     </form>
 </nav>
 <!-- content -->
@@ -20,7 +22,7 @@
         <div id="content">
             <!-- section 1 -->
             <section>
-                <h1>&lt;h1&gt; to &lt;h6&gt; - Headline Colour and Size Are All The Same</h1>
+                <h1>Topic Title :  </h1>
                 <p>This is a W3C compliant free website template from <a href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a>. For full terms of use of this template please read our <a href="https://www.os-templates.com/template-terms">website template licence</a>.</p>
                 <p>You can use and modify the template for both personal and commercial use. You must keep all copyright information and credit links in the template and associated files. For more HTML5 templates visit <a href="https://www.os-templates.com/">free website templates</a>.</p>
                 <ul>
