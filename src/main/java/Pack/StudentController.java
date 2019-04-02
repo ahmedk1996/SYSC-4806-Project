@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.websocket.server.PathParam;
+
 @Controller
-@RequestMapping("/StudentHome")
+
 public class StudentController {
 
     @Autowired
@@ -17,32 +19,32 @@ public class StudentController {
     @Autowired
     private StudentRepository studentRepository;
 
-    @GetMapping()
+    @GetMapping("/StudentHome")
     public String studentName(Model model){
+        model.addAttribute("topicList", topicRepository.findAll());
         String name= "Hunho Ha";
         model.addAttribute("name",name);
         return "StudentHome";
     }
 
 
-    @GetMapping("/")
-    public String studentHome(){
+    @GetMapping("/join")
+    public String joinTopic(){
+
         return "StudentHome";
     }
+
+    @PostMapping("/detail")
+    public String detailTopic(){
+        return "ProjectDetail";
+    }
+
 
 //    @GetMapping
 //    public String getList (Model model){
 //       model.addAttribute("topic", topicRepository.findAll());
 //       return "StudentHome";
 //    }
-
-    @PostMapping("/display")
-    public String display(Model model,@ModelAttribute Topic topic){
-
-        model.addAttribute("topic", topicRepository.findAll());
-
-        return "StudentHome";
-    }
 
 
 

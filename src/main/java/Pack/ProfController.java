@@ -33,11 +33,11 @@ public class ProfController {
         return "Prof";
     }
 
-    @GetMapping ("/all")
-    public String display (Model model,@ModelAttribute Topic topic){
-        model.addAttribute( "topic", topicRepository.findAll());
-        return "Display";
-    }
+//    @GetMapping ("/all")
+//    public String display (Model model,@ModelAttribute Topic topic){
+//        model.addAttribute( "topic", topicRepository.findAll());
+//        return "Display";
+//    }
 
 
 }

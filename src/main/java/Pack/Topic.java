@@ -51,7 +51,6 @@ public class Topic {
         this.description = description;
         this.max_Students = max_Students;
         this.restrictions = restrictions;
-
         this.studentList = new ArrayList<>();
         this.availability = true;
         this.announcement =  new ArrayList<>();
