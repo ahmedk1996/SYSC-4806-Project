@@ -22,9 +22,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-<table>
+<table border="1">
+
     <col width = "200">
-    <col width = "200">
+    <col width = "130">
     <col width = "130">
     <col width = "130">
     <col width = "130">
@@ -33,23 +34,29 @@
     <tr>
         <th> Topic Title </th>
         <th> Program Restriction </th>
-        <th> Current # of students </th>
         <th> Max Students Allowed </th>
-        <th> View Topic </th>
+        <th> Actions </th>
         <th> Archive Topic </th>
+        <th> Delete Topic </th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="topic : ${topic}">
         <td><span th:text="${topic.topicName}"> Topic Title </span></td>
-        <td><span th:text="${topic.description}"> Description </span></td>
         <td><span th:text="${topic.restrictions}"> Program Restriction </span></td>
         <td><span th:text="${topic.max_Students}"> Max Students Allowed </span></td>
-        <td><form><input type=submit value="View" style="width:100%"></form></td>
-        <td><form><input type=submit value="Archive" style="width:100%"></form></td>
-        <td><form><input type=submit value="De-Archive" style="width:100%"></form></td>
-    </tr>
+        <td><form><button class="btn btn-outline-primary" type="submit" formaction="/prof/topic">View</button></form></td>
+
+        <td><form action="#" th:action="@{archive}" method="get">>
+            <input type="hidden" th:name="topicId" th:value="${topic.id}" />
+            <button class="btn btn-outline-primary" type="submit">Archive</button></form></td>
+
+        <td><form action="#" th:action="@{delete}" method="get">>
+            <input type="hidden" th:name="topicId" th:value="${topic.id}" />
+            <button class="btn btn-outline-primary" type="submit">Delete</button></form></td>
+        </tr>
     </tbody>
 </table>
+
 </body>
 </html>

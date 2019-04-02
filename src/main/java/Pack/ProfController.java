@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class ProfController {
 
+    private static final String downloadDirectory = "C:/";
+    private static final String downloadedFileName = "projectsubmission.pdf";
     @Autowired
     ProfRepository profRepository;
     @Autowired
@@ -19,6 +21,30 @@ public class ProfController {
         return "Addform";
     }
 
+    @GetMapping ("/prof/topic")
+    public String profViewTopic(Model model) {
+        model.addAttribute("topic", new Topic());
+        return "ProfTopic";
+    }
+
+    @GetMapping ("/archive")
+    public String archive(@RequestParam int topicId) {
+        Topic topic = topicRepository.findById(topicId);
+        topic.setAvailability(false);
+        return "Prof";
+    }
+
+    @GetMapping ("/activate")
+    public String activate(@RequestParam int topicId) {
+        Topic topic = topicRepository.findById(topicId);
+        topic.setAvailability(true);
+        return "Prof";
+    }
+    @GetMapping ("/delete")
+    public String delete(@RequestParam int topicId) {
+        topicRepository.deleteById(topicId);
+        return "Prof";
+    }
     @GetMapping ("/prof")
     public String prof(Model model) {
         model.addAttribute( "topic", topicRepository.findAll());//2do:findTopicsByProfID(prof.getProfID()) -- How to get prof??
