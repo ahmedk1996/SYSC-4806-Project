@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -13,7 +15,8 @@
     <a class="navbar-brand" style="color:white" th:inline = "text">Welcome [[${#httpServletRequest.remoteUser}]]!  </a>
     <form class="form-inline" style=" margin-left: auto;
     margin-right: auto;">
-        <button class="btn btn-outline-success" type="submit" formaction="/prof">Professor</button>
+
+        <button  class="btn btn-outline-success" type="submit" formaction="/prof">Professor</button>
         <button class="btn btn-outline-danger" type="submit" formaction="/coordinator">Coordinator</button>
         <button class="btn btn-outline-primary" type="submit" formaction="/StudentHome">Student</button>
     </form>
