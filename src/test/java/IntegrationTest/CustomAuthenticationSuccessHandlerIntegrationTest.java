@@ -38,11 +38,11 @@ public class CustomAuthenticationSuccessHandlerIntegrationTest {
     @Test
     public void testLoginValid() throws Exception {
         SecurityMockMvcRequestBuilders.FormLoginRequestBuilder login = formLogin()
-                .user("user")
+                .user("student2")
                 .password("pass");
 
         mockMvc.perform(login)
-                .andExpect(authenticated().withUsername("user"));
+                .andExpect(authenticated().withUsername("student2"));
     }
 
     @Test
@@ -65,25 +65,25 @@ public class CustomAuthenticationSuccessHandlerIntegrationTest {
 
 
     @Test
-    @WithMockUser(roles = "USER")
+    @WithMockUser(roles = "STUDENT")
     public void testLoginUser() throws Exception {
         mockMvc.perform(get("/index"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("USER")));
+                .andExpect(content().string(containsString("STUDENT")));
     }
 
     @Test
-    @WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "PROFESSOR")
     public void testLoginAdmin() throws Exception {
-        mockMvc.perform(get("/index"))
+        mockMvc.perform(get("/professor"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("ADMIN")));
+                .andExpect(content().string(containsString("PROFESSOR")));
     }
 
     @Test
-    @WithMockUser(roles = "USER")
+    @WithMockUser(roles = "PROFESSOR")
     public void testLoginRoles() throws Exception {
-        mockMvc.perform(get("/admin"))
+        mockMvc.perform(get("/professor"))
                 .andExpect(status().isForbidden());
     }
 

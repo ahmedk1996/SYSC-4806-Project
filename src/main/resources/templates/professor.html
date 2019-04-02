@@ -14,7 +14,7 @@
 
 </head>
 <body>
-<div sec:authorize="hasRole('ADMIN')">
+<div sec:authorize="hasRole('PROFESSOR')">
 
     <nav class="navbar navbar-dark bg-dark">
         <a class="navbar-brand" style="color:white" th:inline = "text">Welcome [[${#httpServletRequest.remoteUser}]]!  </a>

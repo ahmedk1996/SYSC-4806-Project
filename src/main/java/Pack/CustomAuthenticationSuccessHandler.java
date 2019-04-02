@@ -30,12 +30,12 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         }else{
             httpServletResponse.sendRedirect("/index");
         }*/
-        if (roles.contains("ROLE_ADMIN")) {
-            httpServletResponse.sendRedirect("/admin");
+        if (roles.contains("ROLE_PROFESSOR")) {
+            httpServletResponse.sendRedirect("/professor");
 
-        } else if (roles.contains("ROLE_USER")) {
-            httpServletResponse.sendRedirect("/user");
-        }else{
+        } else if (roles.contains("ROLE_COORDINATOR")) {
+            httpServletResponse.sendRedirect("/coord");
+        } else if (roles.contains("ROLE_STUDENT")) {
             httpServletResponse.sendRedirect("/index");
         }
 

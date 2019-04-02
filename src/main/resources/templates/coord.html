@@ -14,24 +14,20 @@
 
 </head>
 <body>
-
-<div sec:authorize="hasRole('STUDENT')">
+<div sec:authorize="hasRole('COORDINATOR')">
 
     <nav class="navbar navbar-dark bg-dark">
         <a class="navbar-brand" style="color:white" th:inline = "text">Welcome [[${#httpServletRequest.remoteUser}]]!  </a>
         <form class="form-inline" style=" margin-left: auto;
     margin-right: auto;">
 
-            <button class="btn btn-outline-primary" type="submit" formaction="/StudentHome">Student</button>
 
+            <button class="btn btn-outline-danger" type="submit" formaction="/coordinator">Coordinator</button>
         </form>
         <form th:action = "@{/logout}" method = "post">
             <input class="btn btn-outline-warning" type = "submit" value = "Sign Out"/>
         </form>
     </nav>
-
-
-
 </div>
 
 <!-- Optional JavaScript -->
