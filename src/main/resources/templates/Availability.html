@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Prof Topic Contents</title>
+</head>
+<body>
+<h1>Student Availability</h1>
+<table border="1" align="center">
+    <thead>
+    <tr>
+        <th>  Student Name </th>
+        <th> Preference 1 </th>
+        <th> Preference 2 </th>
+        <th> Preference 3 </th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="date : ${date}">
+        <td><span th:text="${date.id}"> Student Name </span></td>
+        <td><span th:text="${date.date1}"> Preference 1 </span></td>
+        <td><span th:text="${date.date2}"> Preference 2 </span></td>
+        <td><span th:text="${date.date3}"> Preference 3 </span></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -15,6 +15,8 @@
     </form>
 </nav>
 <form action="#" th:action="@{/dateSubmit}" th:object="${date}" method="post">
+    </p> Name: <input type="text" th:field="*{id}"/>
+    <br>
     <p>Preference #1 <input type="datetime-local" th:field="*{date1}" /></p>
     <p>Preference #2 <input type="datetime-local" th:field="*{date2}" /></p>
     <p>Preference #3 <input type="datetime-local" th:field="*{date3}" /></p>

@@ -19,6 +19,8 @@ public class CoordinatorController {
     EventRepository eventRepository;
     @Autowired
     StudentRepository studentRepository;
+    @Autowired
+    DateRepo dateRepo;
 
     public static Date date;
 
@@ -97,4 +99,11 @@ public class CoordinatorController {
             return "redirect:/coordinator";
 
         }
-    }
+
+        @GetMapping ("/studentAvailability")
+        public String getAvailabilty(Model model){
+            model.addAttribute("date", dateRepo.findAll());
+            return "Availability";
+        }
+
+}

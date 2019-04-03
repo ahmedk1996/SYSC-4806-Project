@@ -1,6 +1,24 @@
 package Pack;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class AvailabilityDate {
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @Id
+    private String id;
+
     private String date1;
 
     public String getDate1() {
@@ -10,6 +28,8 @@ public class AvailabilityDate {
     public String getDate2() {
         return date2;
     }
+
+
 
     public String getnewTime1(){
         String aString = this.date1;

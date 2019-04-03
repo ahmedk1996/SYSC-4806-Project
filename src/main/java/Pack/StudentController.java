@@ -11,6 +11,8 @@ public class StudentController {
     private TopicRepository topicRepository;
     @Autowired
     private StudentRepository studentRepository;
+    @Autowired
+    private DateRepo dateRepo;
 
     @GetMapping("/StudentHome")
     public String studentName(Model model){
@@ -30,6 +32,7 @@ public class StudentController {
 
     @PostMapping(value = "/dateSubmit")
     public String studentDate(@ModelAttribute AvailabilityDate dates, Model model){
+        dateRepo.save(dates);
         model.addAttribute("dates", dates);
         return "dateConfirmed";
     }
