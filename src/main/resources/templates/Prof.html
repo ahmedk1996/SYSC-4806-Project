@@ -29,10 +29,10 @@
         <th> Topic Title </th>
         <th> Program Restriction </th>
         <th> Max Students Allowed </th>
-        <th> Actions </th>
+        <th> View Topic </th>
         <th> Archive Topic </th>
-        <th> Activate Topic </th>
         <th> Delete Topic </th>
+        <th> Activate Topic </th>
     </tr>
     </thead>
     <tbody>
@@ -42,17 +42,17 @@
         <td><span th:text="${t.max_Students}"> Max Students Allowed </span></td>
         <td><form><button class="btn btn-outline-primary" type="submit" formaction="/prof/topic">View</button></form></td>
 
-        <td><form action="#" th:action="@{archive}" method="get">
+            <td><form action="#" th:action="@{archive}" method="get">
             <input type="hidden" th:name="topicId" th:value="${t.id}" />
             <button class="btn btn-outline-primary" type="submit">Archive</button></form></td>
 
-        <td><form action="#" th:action="@{activate}" method="get">
-            <input type="hidden" th:name="topicId" th:value="${t.id}" />
-            <button class="btn btn-outline-primary" type="submit">Activate</button></form></td>
-
-        <td><form action="#" th:action="@{delete}" method="get">
+            <td><form action="#" th:action="@{delete}" method="get">
             <input type="hidden" th:name="topicId" th:value="${t.id}" />
             <button class="btn btn-outline-primary" type="submit">Delete</button></form></td>
+
+        <td th:unless="${t.availability}"><form action="#" th:action="@{activate}" method="get">
+            <input type="hidden" th:name="topicId" th:value="${t.id}" />
+            <button class="btn btn-outline-primary" type="submit">Activate</button></form></td>
         </tr>
     </tbody>
 </table>
