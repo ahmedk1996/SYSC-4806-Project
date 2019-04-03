@@ -6,31 +6,54 @@
 </head>
 <body>
 <h1>Form</h1>
-
+<!--
 <table>
-    <thead>
-    <tr>
-        <th> Description </th>
-        <th> Restrictions </th>
-      <!--  <th> Current Student </th> -->
-        <th> Max Student </th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="topic : ${topicList}">
-        <td><span th:text="${topic.description}"> Description </span></td>
-        <td><span th:text="${topic.restrictions}"> Restrictions </span></td>
-    <!--    <td><span th:text="${topic.}"> Current Student</span></td> -->
-        <td><span th:number="${topic.max_Students}"> Max Student</span></td>
+  <thead>
+  <tr>
+      <th> Description </th>
+      <th> Restrictions </th>
+      <th> Max Student </th>
+  </tr>
+  </thead>
+  <tbody>
 
-        <td><form  >
-            <button class="btn btn-outline-success" type="submit" formaction="/StudentHome">Join</button>
-            <button class="btn btn-outline-danger" type="submit" formaction="">Details</button>
-        </form></td>
-    </tr>
 
-    </tbody>
+  <tr th:each="topic:${topicList}">
+      <td><span th:text="${topic.description}"> Description </span></td>
+      <td><span th:text="${topic.restrictions}"> Restrictions </span></td>
+      <td><span th:number="${topic.max_Students}"> Max Student</span></td>
+      <td><span><input type="hidden" th:name = "topic" th:value="${topic}"></span></td>
+      <td><form>
+          <button class="btn btn-outline-success" type="submit" formaction="/StudentHome">Join</button>
+          <button class="btn btn-outline-danger" type="submit" formaction="/">Details</button>
+      </form></td>
+  </tr>
+
+  </tbody> -->
 </table>
+<td>
+  <table>
+      <thead>
+      <tr>
+          <th th:text="#{seedstarter.datePlanted}">Description</th>
+          <th th:text="#{seedstarter.covered}">Restrictions</th>
+          <th th:text="#{seedstarter.type}">Max Student</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="topic:${topicList}">
+          <td><span th:text="${topic.description}"> Description </span></td>
+          <td><span th:text="${topic.restrictions}"> Restrictions </span></td>
+          <td><span th:number="${topic.max_Students}"> Max Student</span></td>
+          <td><span><input type="hidden" th:name = "topic" th:value="${topic}"></span></td>
+          <td><form>
+              <button class="btn btn-outline-success" type="submit" formaction="/StudentHome">Join</button>
+              <button class="btn btn-outline-danger" type="submit" formaction="/">Details</button>
+          </form></td>
+      </tr>
+      </tbody>
+  </table>
+</td>
 
 </body>
 </html>
