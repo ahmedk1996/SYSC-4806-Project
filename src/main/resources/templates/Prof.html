@@ -40,7 +40,9 @@
         <td><span th:text="${t.topicName}"> Topic Title </span></td>
         <td><span th:text="${t.restrictions}"> Program Restriction </span></td>
         <td><span th:text="${t.max_Students}"> Max Students Allowed </span></td>
-        <td><form><button class="btn btn-outline-primary" type="submit" formaction="/prof/topic">View</button></form></td>
+        <td><form action="#" th:action="@{prof/topic}" method="get">
+            <input type="hidden" th:name="topicId" th:value="${t.id}" />
+            <button class="btn btn-outline-primary" type="submit">View</button></form></td>
 
             <td><form action="#" th:action="@{archive}" method="get">
             <input type="hidden" th:name="topicId" th:value="${t.id}" />
