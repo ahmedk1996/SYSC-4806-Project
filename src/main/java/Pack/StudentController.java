@@ -36,20 +36,32 @@ public class StudentController {
 
 
     @GetMapping("/join")
-    public String joinTopic(){
+    public String join(@RequestParam String topicName,Model model){
+        Topic topic = topicRepository.findByTopicName(topicName);
+        model.addAttribute("topicdetail",topic);
+        if(topic.isFull()){
+            return "StudentHome";
+        }else{
+            
+            topic.addStudent()
+            return "StudentHome";
+        }
 
-        return "StudentHome";
     }
 
     @GetMapping("/detail")
-    public String detailTopic(){
+    public String detail(@RequestParam String topicName,Model model){
+        Topic topic = topicRepository.findByTopicName(topicName);
+        model.addAttribute("topicdetail",topic);
+        model.addAttribute(topicName,topic.getTopicName());
 
         return "ProjectDetail";
     }
 
-    @GetMapping("/ProjectDetail")
-    public String ProjectDetail(@RequestAttribute Topic topic,Model model){
-        model.addAttribute("topicdetail",topic);
+    @GetMapping("/StudentHome/ProjectDetail")
+    public String ProjectDetail(){
+//        Topic topic = topicRepository.findByTopicName(topicName);
+//        model.addAttribute("topicdetail",topic);
         return "ProjectDetail";
     }
 
