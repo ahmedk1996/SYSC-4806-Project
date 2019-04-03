@@ -9,10 +9,10 @@
 </head>
 <body>
 <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" style=" color:white;">Welcome Student</a>
+    <a class="navbar-brand" style=" color:white;" href="/index">[[${#httpServletRequest.remoteUser}]]'s Homepage!</a>
     <form class="form-inline" style=" margin-left: auto;
     margin-right: auto;">
-        <button class="btn btn-outline-danger" type="submit" formaction="/">Home</button>
+        <button class="btn btn-outline-danger" type="submit" formaction="/index">Home</button>
         <button class="btn btn-outline-primary" type="submit" formaction="/dateSubmit">Submit Availability</button>
     </form>
 </nav>
@@ -27,6 +27,7 @@
         <th> Description </th>
         <th> Program Restriction </th>
         <th> Max Students Allowed </th>
+        <th> Notifications </th>
     </tr>
     </thead>
     <tbody>
@@ -35,7 +36,7 @@
         <td><span th:text="${topic.description}"> Description </span></td>
         <td><span th:text="${topic.restrictions}"> Program Restriction </span></td>
         <td><span th:text="${topic.max_Students}"> Max Students Allowed </span></td>
-        <td><span th:number="${topic.max_Students}"> Max Student</span></td>
+        <td><span th:text="${topic.announcement}"> Notifications </span></td>
         <td><form>
             <input method="get" type='submit' name='join' value='Join' formaction="/join" />
             <input method="post" type='submit' name='detail' value='Detail' formaction="/detail" />
