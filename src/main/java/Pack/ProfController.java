@@ -19,12 +19,6 @@ public class ProfController {
         return "Addform";
     }
 
-    @GetMapping ("/prof")
-    public String prof(Model model) {
-        model.addAttribute( "topic", topicRepository.findAll());//2do:findTopicsByProfID(prof.getProfID()) -- How to get prof??
-        return "Prof";
-    }
-
     @PostMapping("/add")
     public String addSubmit(@ModelAttribute Topic topic, Model model) {
         topicRepository.save(topic);
@@ -32,11 +26,22 @@ public class ProfController {
         return "Prof";
     }
 
-    @GetMapping ("/all")
-    public String display (Model model,@ModelAttribute Topic topic){
-        model.addAttribute( "topic", topicRepository.findAll());
-        return "Display";
+//    @GetMapping ("/all")
+//    public String display (Model model,@ModelAttribute Topic topic){
+//        model.addAttribute( "topic", topicRepository.findAll());
+//        return "Display";
+//    }
+
+
+    @GetMapping ("/prof")
+    public String prof(Model model) {
+        model.addAttribute( "topic", topicRepository.findAll());//2do:findTopicsByProfID(prof.getProfID()) -- How to get prof??
+        return "Prof";
     }
+
+   
+
+
 
 
 }

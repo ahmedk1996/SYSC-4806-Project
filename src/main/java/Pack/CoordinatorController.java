@@ -13,10 +13,12 @@ public class CoordinatorController {
     EventRepository eventRepository;
     @Autowired
     StudentRepository studentRepository;
+    @Autowired
+    TopicRepository topicRepository;
 
     @GetMapping ("/coordinator")
     public String coordinatorForm(Model model) {
-        model.addAttribute( "event", eventRepository.findAll());
+        model.addAttribute( "topic", topicRepository.findAll());
         return "Coordinator";
     }
 
@@ -36,4 +38,31 @@ public class CoordinatorController {
         model.addAttribute("event", event);
         return "AddEvents";
     }
+
+
+//    @GetMapping ("/notifyForm")
+//    public String notifyForm(Model model) {
+//        Topic temp = (Topic) topicRepository.findByTopicName("f");
+//        String announcement = new String();
+//        model.addAttribute( "noti", announcement);
+//
+//        //model.addAttribute( "noti", topicRepository.findByTopicName("f"));
+//        return "addNotifications";
+//    }
+//    @GetMapping ("/notifyForm")
+//    public String notifyForm(Model model) {
+//        String announcement = new String();
+//        model.addAttribute( "noti", announcement);
+//        return "addNotifications";
+//    }
+
+    @GetMapping ("/notifyForm")
+        public String submitNotification(@RequestParam String topicName,@RequestParam String notification) {
+        Topic temp = topicRepository.findByTopicName(topicName);
+        temp.setAnnouncement(notification);
+        topicRepository.save(temp);
+
+        return "redirect:/coordinator" ;
+    }
+
 }
