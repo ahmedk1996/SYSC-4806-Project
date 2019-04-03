@@ -39,13 +39,13 @@ public class StudentController {
     public String join(@RequestParam String topicName,Model model){
         Topic topic = topicRepository.findByTopicName(topicName);
         model.addAttribute("topicdetail",topic);
-        if(topic.isFull()){
-            return "StudentHome";
-        }else{
-            
-            topic.addStudent()
-            return "StudentHome";
-        }
+//        if(topic.isFull()){
+//            return "StudentHome";
+//        }else{
+//
+//            //topic.addStudent();
+//            return "StudentHome";
+//        }
 
     }
 
