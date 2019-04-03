@@ -66,29 +66,30 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public UserDetailsService userDetailsService() {
         InMemoryUserDetailsManager users = new InMemoryUserDetailsManager();
         users.createUser(User.withDefaultPasswordEncoder()
-                .username("student")
+                .username("alybarolia")
                 .password("123")
                 .roles("STUDENT").build());
         users.createUser(User.withDefaultPasswordEncoder()
-                .username("coordinator")
-                .password("1234")
-                .roles("COORDINATOR").build());
-        users.createUser(User.withDefaultPasswordEncoder()
-                .username("professor")
-                .password("12345")
-                .roles("PROFESSOR").build());
-        users.createUser(User.withDefaultPasswordEncoder()
-                .username("student1")
-                .password("pass")
+                .username("hun")
+                .password("123")
                 .roles("STUDENT").build());
         users.createUser(User.withDefaultPasswordEncoder()
-                .username("coordinator1")
-                .password("pass1")
+                .username("jefftudor")
+                .password("123")
+                .roles("STUDENT").build());
+        users.createUser(User.withDefaultPasswordEncoder()
+                .username("ahmad")
+                .password("123")
+                .roles("STUDENT").build());
+        users.createUser(User.withDefaultPasswordEncoder()
+                .username("jenna")
+                .password("sysc")
                 .roles("COORDINATOR").build());
         users.createUser(User.withDefaultPasswordEncoder()
-                .username("professor1")
-                .password("pass2")
+                .username("babak")
+                .password("sysc")
                 .roles("PROFESSOR").build());
+
         return users;
     }
 
