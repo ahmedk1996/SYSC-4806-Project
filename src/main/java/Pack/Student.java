@@ -15,7 +15,6 @@ public class Student {
     private String program;
 
     public Student(){
-
     }
 
     public Student(String name, Integer id, String program){

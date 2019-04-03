@@ -2,6 +2,8 @@ package UnitTest;
 
 
 import Pack.Application;
+import Pack.Coordinator;
+import Pack.CoordinatorController;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,6 +18,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import Pack.serviceForStorage;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
+
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 @RunWith(SpringRunner.class)
 @WebAppConfiguration
@@ -35,7 +41,6 @@ public class FileUploadTest{
     public void shouldSaveUploadedFile() throws Exception {
 
         this.mockMVC.perform(get("/upload")).andExpect(status().isOk()).andExpect(view().name("uploadTemplate"));
-
     }
 
 

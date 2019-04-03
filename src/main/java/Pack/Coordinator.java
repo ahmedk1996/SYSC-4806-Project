@@ -14,10 +14,13 @@ public class Coordinator {
     private String name;
     @Id
     private Integer id;
+    //private AvailabilityDate date = new AvailabilityDate();
+
 
     public Coordinator(String name, Integer id){
         this.name=name;
         this.id=id;
+        //this.date = new AvailabilityDate();
     }
 
     public String getName() {

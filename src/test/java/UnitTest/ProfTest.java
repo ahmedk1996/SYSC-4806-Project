@@ -40,7 +40,8 @@ public class ProfTest {
         assertEquals("Expected output is Mr.Testy","Mr.Testy", testProf.getName());
     }
 
-    @Test void setNameTest() {
+    @Test
+    public void setNameTest() {
         testProf.setName("Testie");
         assertEquals("Expected: testie is the new name","Testie",testProf.getName());
     }
