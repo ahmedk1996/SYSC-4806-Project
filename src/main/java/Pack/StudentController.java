@@ -46,7 +46,7 @@ public class StudentController {
 //            //topic.addStudent();
 //            return "StudentHome";
 //        }
-
+        return "StudentHome";
     }
 
     @GetMapping("/detail")
