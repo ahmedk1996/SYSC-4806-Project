@@ -82,11 +82,13 @@ public class Topic {
         this.announcement = announcement;
     }
 
+
     public Topic(String topicName, String description, String restrictions , int max_Students){
         this.topicName = topicName;
         this.description = description;
         this.max_Students = max_Students;
         this.restrictions = restrictions;
+
         this.studentList = new ArrayList<>();
         this.availability = true;
         this.announcement =  new String();
@@ -111,9 +113,6 @@ public class Topic {
             return false;
     }
 
-//    public void addAnnouncement(String announcement) {
-//        this.announcement.add(announcement);
-//    }
 
     public boolean isAvailability() {
         return availability;

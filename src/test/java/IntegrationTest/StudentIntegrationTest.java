@@ -33,6 +33,6 @@ public class StudentIntegrationTest {
 
     @Test
     public void testStudentsWithoutProjects() throws Exception{
-        this.mockMVC.perform(get("/unenrolled")).andExpect(status().isOk()).andExpect(view().name("UnenrolledStudents"));
+        this.mockMVC.perform(get("/enrollment")).andExpect(status().isOk()).andExpect(view().name("StudentEnrollment"));
     }
 }

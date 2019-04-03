@@ -1,0 +1,22 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title >Set Project Deadline</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" style=" color:white;">Welcome Coordinator</a>
+    <form class="form-inline" style=" margin-left: auto;
+    margin-right: auto;">
+        <button class="btn btn-outline-primary" type="submit" formaction="/enrollment">Student Enrollment</button>
+    </form>
+</nav>
+<form action="#" th:action="@{/projectDeadline}" th:object="${deadline}" method="post">
+    <br />
+    <p>PROJECT DEADLINE: <input type="datetime-local" th:field="*{date1}" /></p>
+    <p><input type="submit" value="Submit" /><input type="reset" value="Reset" /></p>
+</form>
+</body>
+</html>

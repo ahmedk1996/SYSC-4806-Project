@@ -39,7 +39,8 @@ public class CoordinatorTest {
             assertEquals("Expected output is Vicky","Vicky", testCor.getName());
         }
 
-        @Test void setNameTest() {
+        @Test
+        public void setNameTest() {
             testCor.setName("Kunz");
             assertEquals("Expected: Kunz is the new name","Kunz",testCor.getName());
         }
