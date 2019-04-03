@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html xmlns="http://www.w3.org/1999/xhtml" >
 
 <head>
     <!-- Required meta tags -->
@@ -15,24 +14,8 @@
 </head>
 <body>
 
-<div sec:authorize="hasRole('STUDENT')">
 
-    <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand" style="color:white" th:inline = "text">Welcome [[${#httpServletRequest.remoteUser}]]!  </a>
-        <form class="form-inline" style=" margin-left: auto;
-    margin-right: auto;">
-
-            <button class="btn btn-outline-primary" type="submit" formaction="/StudentHome">Student</button>
-
-        </form>
-        <form th:action = "@{/logout}" method = "post">
-            <input class="btn btn-outline-warning" type = "submit" value = "Sign Out"/>
-        </form>
-    </nav>
-
-
-
-</div>
+<p class="font-weight-bold">ACCESS DENIED!!</p>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
