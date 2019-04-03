@@ -41,7 +41,7 @@
         <td><form action="#" th:action="@{detail}" method="get">
             <input type="hidden" th:name="topicName" th:value="${topic.topicName}" />
             <button class="btn btn-outline-primary" type="submit">Detail</button></form></td>
-        <td th:unless "${topic.availability}"> <form action="#" th:action="@{join}" method="get">
+        <td th:unless ="${topic.availability}"> <form action="#" th:action="@{join}" method="get">
         <input type="hidden" th:name="topicName" th:value="${topic.topicName}" />
         <button class="btn btn-outline-primary" type="submit">Join</button></form></td>
 
