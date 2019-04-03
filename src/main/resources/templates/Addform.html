@@ -6,14 +6,18 @@
 </head>
 <body>
 <h1>Add A Topic Form</h1>
-<form action="#" th:action="@{/add}" th:object="${topic}" method="post">
-    <p>Name: Mr. Babak</p>
+    <form action="#" th:action="@{/add}" th:object="${topic}" method="post">
+        <p>Name: </p>
     <p>Topic Title: <input type="text" th:field="*{topicName}" /></p>
     <p>Topic Description:
     <p><textarea input type="text" th:field="*{description}" rows="10" cols="40"></textarea></p>
     <p>Topic Restrictions:
     <p><textarea input type="text" th:field="*{restrictions}" rows="10" cols="40"></textarea></p>
     <p>Max. Desired Students: <input type="number" th:field="*{max_Students}" /></p>
+    <h2> Select your Availability:</h2>
+    <p>Preference #1 <input type="datetime-local" th:field="*{preference1}" /></p>
+    <p>Preference #2 <input type="datetime-local" th:field="*{preference2}" /></p>
+    <p>Preference #3 <input type="datetime-local" th:field="*{preference3}" /></p>
     <p><input type="submit" value="Submit" /><input type="reset" value="Reset" /></p>
 </form>
 </body>

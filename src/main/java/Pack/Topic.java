@@ -18,9 +18,39 @@ public class Topic {
     private String topicName;
     private String description;
     private int max_Students;
+    private String preference1;
+    private String preference2;
+    private String preference3;
+
+
+    public String getPreference1() {
+        return preference1;
+    }
+
+    public void setPreference1(String preference1) {
+        this.preference1 = preference1;
+    }
+
+    public String getPreference2() {
+        return preference2;
+    }
+
+    public void setPreference2(String preference2) {
+        this.preference2 = preference2;
+    }
+
+    public String getPreference3() {
+        return preference3;
+    }
+
+    public void setPreference3(String preference3) {
+        this.preference3 = preference3;
+    }
+
+
 
     private ArrayList<Student> studentList;
-    private ArrayList<String> announcement;
+    private String announcement;
 
     public boolean isAvailable() {
         return availability;
@@ -47,6 +77,12 @@ public class Topic {
 
     }
 
+
+    public void setAnnouncement(String announcement) {
+        this.announcement = announcement;
+    }
+
+
     public Topic(String topicName, String description, String restrictions , int max_Students){
         this.topicName = topicName;
         this.description = description;
@@ -55,10 +91,10 @@ public class Topic {
 
         this.studentList = new ArrayList<>();
         this.availability = true;
-        this.announcement =  new ArrayList<>();
+        this.announcement =  new String();
     }
 
-    public ArrayList<String> getAnnouncementList() {
+    public String getAnnouncement() {
         return announcement;
     }
     public Boolean addStudent(Student student){
@@ -77,9 +113,6 @@ public class Topic {
             return false;
     }
 
-    public void addAnnouncement(String announcement) {
-        this.announcement.add(announcement);
-    }
 
     public boolean isAvailability() {
         return availability;
@@ -92,6 +125,16 @@ public class Topic {
     public void setStudentList(ArrayList<Student> studentList) {
         this.studentList = studentList;
 
+    }
+
+    public Topic(String topicName, String description, String restrictions , int max_Students, String preference1, String preference2, String preference3){
+        this.topicName = topicName;
+        this.description = description;
+        this.max_Students = max_Students;
+        this.restrictions = restrictions;
+        this.preference1 = preference1;
+        this.preference2 = preference2;
+        this.preference3 = preference3;
     }
 
     public String getTopicName() {
@@ -146,4 +189,6 @@ public class Topic {
     public void setProfID(int profID) {
         this.profID = profID;
     }
+
+
 }

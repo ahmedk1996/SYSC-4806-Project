@@ -28,7 +28,7 @@ public class CoordinatorIntegrationTest {
     public void setup(){
         this.mockMVC = MockMvcBuilders.webAppContextSetup(this.app).build();
     }
-
+//Test for coordinator
     @Test
     public void testCoordinatorPage() throws Exception{
         this.mockMVC.perform(get("/coordinator")).andExpect(status().isOk()).andExpect(view().name("Coordinator"));

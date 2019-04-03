@@ -9,6 +9,8 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+
 public class TopicTest {
     Topic topicTest;
     String announcement;
@@ -24,17 +26,11 @@ public class TopicTest {
 
     @Test
     public void getAnnouncementList() {
-        List<String> empty = new ArrayList<>();
-        Assert.assertEquals("Null Test", empty ,topicTest.getAnnouncementList());
+        topicTest.setAnnouncement("");
+        assertEquals("Null Test", "" ,topicTest.getAnnouncement());
 
     }
 
-    @Test
-    public void addAnnouncement() {
-        announcement = "test";
-        topicTest.addAnnouncement(announcement);
-        Assert.assertEquals("injection Test", announcement ,topicTest.getAnnouncementList().get(0));
-    }
 
     @Test
     public void getMax_Students() {
