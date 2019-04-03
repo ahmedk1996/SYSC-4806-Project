@@ -26,8 +26,8 @@ public class ProfController {
         return "Prof";
     }
     @GetMapping ("/prof/topic")
-    public String profViewTopic(Model model) {
-        model.addAttribute("topic", new Topic());
+    public String profViewTopic(@RequestParam int topicId, Model model) {
+        model.addAttribute("topic", topicRepository.findById(topicId));
         return "ProfTopic";
     }
 
