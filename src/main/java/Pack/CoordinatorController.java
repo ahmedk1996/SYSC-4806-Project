@@ -71,7 +71,7 @@ public class CoordinatorController {
         System.out.println("Deadline is: " + date1);
         date = date1;
         model.addAttribute("date", dates);
-        return "Coordinator";
+        return "redirect:/coordinator";
     }
 
 //    @GetMapping ("/notifyForm")
