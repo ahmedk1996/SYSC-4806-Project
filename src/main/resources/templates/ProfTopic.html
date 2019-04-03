@@ -1,12 +1,37 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="en" xmlns:="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title >Prof HomePage</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" >
 </head>
 <body>
-<div th:object="topic : ${details}">
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" style=" color:white;">Topic Name :  <a class="navbar-brand" style=" color:white;" th:text="${topic.topicName}" ></a> </a>
 
-</div>
+    <form class="form-inline" style=" margin-left: auto;
+    margin-right: auto;">
+        <button class="btn btn-outline-danger" type="submit" formaction="/">Home</button>
+        <!--   <button class="btn btn-outline-success" type="submit" formaction="/upload">Upload 4th Year Report</button> -->
+    </form>
+</nav>
+<h1>Topic Name :  <h3 th:text="${topic.topicName}"></h3> </h1>
+<br>
+<br>
+<h1>Topic Description </h1>
+<h3 th:text="${topic.description}">Descripts</h3>
+<br>
+<br>
+<table>
+    <tr>
+        <th><h1>Current Students List </h1></th>
+    </tr>
+    <tr th:each="students : ${topic.getStudentList()}">
+        <td th:text="${students.getName()}"></td>
+    </tr>
+</table>
+<br>
+<br>
 </body>
 </html>
