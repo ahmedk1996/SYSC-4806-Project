@@ -4,18 +4,45 @@
 
 <head>
     <meta charset="UTF-8">
-    <title >Welcome Student: Ahmed</title>
+    <title >Student Home</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" style=" color:white;">Welcome Student: Ahmed Khattab</a>
+    <a class="navbar-brand" style=" color:white;">Welcome Student</a>
     <form class="form-inline" style=" margin-left: auto;
     margin-right: auto;">
-        <button class="btn btn-outline-success" type="submit" formaction="/upload">Upload 4th Year Report</button>
         <button class="btn btn-outline-danger" type="submit" formaction="/">Home</button>
         <button class="btn btn-outline-primary" type="submit" formaction="/dateSubmit">Submit Availability</button>
     </form>
 </nav>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<table>
+    <thead>
+    <tr>
+        <th> Topic Title </th>
+        <th> Description </th>
+        <th> Program Restriction </th>
+        <th> Max Students Allowed </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="topic : ${topicList}">
+        <td><span th:text="${topic.topicName}"> Topic Title </span></td>
+        <td><span th:text="${topic.description}"> Description </span></td>
+        <td><span th:text="${topic.restrictions}"> Program Restriction </span></td>
+        <td><span th:text="${topic.max_Students}"> Max Students Allowed </span></td>
+        <td><span th:number="${topic.max_Students}"> Max Student</span></td>
+        <td><form>
+            <input method="get" type='submit' name='join' value='Join' formaction="/join" />
+            <input method="post" type='submit' name='detail' value='Detail' formaction="/detail" />
+        </form></td>
+    </tr>
+    </tbody>
+
+</table>
 </body>
 </html>

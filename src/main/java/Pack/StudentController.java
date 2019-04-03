@@ -4,13 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Iterator;
-
 @Controller
 public class StudentController {
 
@@ -19,16 +12,11 @@ public class StudentController {
     @Autowired
     private StudentRepository studentRepository;
 
-    @GetMapping(value = "/students")
-    public String display ( Model model){
-
-        model.addAttribute( "topicList", topicRepository.findAll());
-        return "Student";
-    }
-
-    @GetMapping(value = "/StudentHome")
-    public String studentHome(Model model){
-
+    @GetMapping("/StudentHome")
+    public String studentName(Model model){
+        model.addAttribute("topicList", topicRepository.findAll());
+        String name= "Hunho Ha";
+        model.addAttribute("name",name);
         return "StudentHome";
     }
 
@@ -45,4 +33,26 @@ public class StudentController {
         model.addAttribute("dates", dates);
         return "dateConfirmed";
     }
+
+
+    @GetMapping("/join")
+    public String joinTopic(){
+
+        return "StudentHome";
+    }
+
+    @GetMapping("/detail")
+    public String detailTopic(){
+
+        return "ProjectDetail";
+    }
+
+    @GetMapping("/ProjectDetail")
+    public String ProjectDetail(@RequestAttribute Topic topic,Model model){
+        model.addAttribute("topicdetail",topic);
+        return "ProjectDetail";
+    }
+
+
+
 }
