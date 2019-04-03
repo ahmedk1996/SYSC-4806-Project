@@ -9,7 +9,7 @@
 </head>
 <body>
 <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" style=" color:white;">Welcome Student</a>
+    <a class="navbar-brand" style=" color:white;" href="/index">[[${#httpServletRequest.remoteUser}]]'s Homepage!</a>
     <form class="form-inline" style=" margin-left: auto;
     margin-right: auto;">
         <button class="btn btn-outline-danger" type="submit" formaction="/index">Home</button>
