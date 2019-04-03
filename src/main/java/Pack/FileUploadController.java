@@ -34,8 +34,10 @@ public class FileUploadController {
 
 
         LocalDateTime now = LocalDateTime.now();
-        String s = now.toString().replace('-', '/');
-        Date dtf = new SimpleDateFormat("yyyy/MM/dd").parse(s);
+        String s = now.toString().substring(0, 10).replace('-', '/');
+        String f = now.getHour() + ":" + now.getMinute();
+        String l = s + " " + f;
+        Date dtf = new SimpleDateFormat("yyyy/MM/dd HH:mm").parse(l);
 
         System.out.println("Current time is:" + dtf);
 

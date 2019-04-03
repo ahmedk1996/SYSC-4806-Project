@@ -57,7 +57,9 @@ public class CoordinatorController {
     @PostMapping (value= "/projectDeadline")
     public String deadline(@ModelAttribute AvailabilityDate dates, Model model) throws ParseException {
         String s = dates.getnewDate1().replace('-','/');
-        Date date1 = new SimpleDateFormat("yyyy/MM/dd").parse(s);
+        String f = dates.getnewTime1();
+        String l = s + " " + f;
+        Date date1 = new SimpleDateFormat("yyyy/MM/dd HH:mm").parse(l);
         System.out.println("Deadline is: " + date1);
         date = date1;
         model.addAttribute("date", dates);
