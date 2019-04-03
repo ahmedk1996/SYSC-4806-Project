@@ -62,7 +62,7 @@ public class CoordinatorController {
 
     @PostMapping (value= "/projectDeadline")
     public String deadline(@ModelAttribute AvailabilityDate dates, Model model) throws ParseException {
-        String s = dates.getnewDate1().replace('-','/');
+        String s = dates.getnewDate1().replace('-', '/');
         String f = dates.getnewTime1();
         String l = s + " " + f;
         Date date1 = new SimpleDateFormat("yyyy/MM/dd HH:mm").parse(l);
@@ -70,7 +70,7 @@ public class CoordinatorController {
         date = date1;
         model.addAttribute("date", dates);
         return "Coordinator";
-
+    }
 
 //    @GetMapping ("/notifyForm")
 //    public String notifyForm(Model model) {
@@ -88,14 +88,13 @@ public class CoordinatorController {
 //        return "addNotifications";
 //    }
 
-    @GetMapping ("/notifyForm")
-        public String submitNotification(@RequestParam String topicName,@RequestParam String notification) {
-        Topic temp = topicRepository.findByTopicName(topicName);
-        temp.setAnnouncement(notification);
-        topicRepository.save(temp);
+        @GetMapping("/notifyForm")
+        public String submitNotification (@RequestParam String topicName, @RequestParam String notification){
+            Topic temp = topicRepository.findByTopicName(topicName);
+            temp.setAnnouncement(notification);
+            topicRepository.save(temp);
 
-        return "redirect:/coordinator" ;
+            return "redirect:/coordinator";
 
+        }
     }
-
-}
