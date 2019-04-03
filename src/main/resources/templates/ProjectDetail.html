@@ -1,106 +1,50 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="en" xmlns:="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title >Student HomePage</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" >
 </head>
 <body>
 <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" style=" color:white;" th:text="${topicName}" >Project Detail : </a>
+    <a class="navbar-brand" style=" color:white;">Topic Name :  <a class="navbar-brand" style=" color:white;" th:text="${topicdetail.topicName}" ></a> </a>
+
     <form class="form-inline" style=" margin-left: auto;
     margin-right: auto;">
         <button class="btn btn-outline-danger" type="submit" formaction="/">Home</button>
      <!--   <button class="btn btn-outline-success" type="submit" formaction="/upload">Upload 4th Year Report</button> -->
     </form>
 </nav>
-<!-- content -->
-<div class="wrapper row2">
-    <div id="container">
-        <!-- content body -->
-        <div id="content">
-            <!-- section 1 -->
-            <section>
-                <h1>Topic Title :  </h1>
-                <p>This is a W3C compliant free website template from <a href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a>. For full terms of use of this template please read our <a href="https://www.os-templates.com/template-terms">website template licence</a>.</p>
-                <p>You can use and modify the template for both personal and commercial use. You must keep all copyright information and credit links in the template and associated files. For more HTML5 templates visit <a href="https://www.os-templates.com/">free website templates</a>.</p>
-                <ul>
-                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                    <li>Etiam vel sapien et est adipiscing commodo.</li>
-                    <li>Duis pharetra eleifend sapien, id faucibus dolor rutrum et.</li>
-                    <li>Donec et dui dolor, in lacinia leo.</li>
-                    <li>Mauris posuere tellus ac purus adipiscing dapibus.</li>
-                </ul>
-                <p>Vestibulumaccumsan egestibulum eu justo convallis augue estas aenean elit intesque sed. Facilispede estibulum nulla orna nisl velit elit ac aliquat non tincidunt. Namjusto cras urna urnaretra lor urna neque sed quis orci nulla. Laoremut vitae doloreet condimentumst phasellentes dolor ut a ipsum id consectetus. Inpede cumst vitae ris tellentesque fring intesquet nibh fames nulla curabitudin.</p>
-            </section>
-            <!-- section 2 -->
-            <section>
-                <!-- article 1 -->
-                <article class="odd">
-                    <figure><img src="images/demo/80x80.gif" alt="">
-                        <figcaption>This is the caption / description for the image</figcaption>
-                    </figure>
-                    <h2>Post Title</h2>
-                    <address>
-                        Admin, domainname.com
-                    </address>
-                    <time datetime="2012-04-06T08:15+00:00">Friday, 6<sup>th</sup> April 2012 @08:15:00</time>
-                    <p>Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis.</p>
-                    <q>This is a quote, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti</q>
-                    <p>Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit.</p>
-                    <p class="more"><a href="#">Read More &raquo;</a></p>
-                </article>
-                <!-- article 2 -->
-                <article class="even">
-                    <figure><img src="images/demo/80x80.gif" alt="">
-                        <figcaption>This is the caption / description for the image</figcaption>
-                    </figure>
-                    <h2>Post Title</h2>
-                    <address>
-                        Admin, domainname.com
-                    </address>
-                    <time datetime="2012-04-06T08:15+00:00">Friday, 6<sup>th</sup> April 2012 @08:15:00</time>
-                    <p>Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui.</p>
-                    <p class="more"><a href="#">Read More &raquo;</a></p>
-                </article>
-                <!-- / articles -->
-                <div class="clear"></div>
-            </section>
-            <section>
-                <h1>Bottom &lt;Section&gt;</h1>
-                <p>Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-            </section>
-        </div>
-        <!-- right column -->
-        <aside id="right_column">
-            <nav>
-                <h2>&lt;Aside&gt; + &lt;Nav&gt;</h2>
-                <ul>
-                    <li><a href="#">Free Website Templates</a></li>
-                    <li><a href="#">Free CSS Templates</a>
-                        <ul>
-                            <li><a href="#">Free XHTML Templates</a></li>
-                            <li><a href="#">Free Web Templates</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Free Website Layouts</a>
-                        <ul>
-                            <li><a href="#">Free HTML 5 Templates</a></li>
-                            <li><a href="#">Free Webdesign Templates</a>
-                                <ul>
-                                    <li><a href="#">Free FireWorks Templates</a></li>
-                                    <li><a href="#">Free PNG Templates</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Free Website Themes</a></li>
-                </ul>
-            </nav>
-        </aside>
-        <!-- / content body -->
-        <div class="clear"></div>
-    </div>
-</div>
+<h1>Topic Name :  <h3 th:text="${topicdetail.topicName}"></h3> </h1>
+<br>
+<br>
+<h1>Topic Description </h1>
+<h3 th:text="${topicdetail.description}">Descripts</h3>
+<br>
+<br>
+<table>
+    <tr>
+        <th><h1>Current Students List </h1></th>
+    </tr>
+    <tr th:each="students : ${topicdetail.getStudentList()}">
+        <td th:text="${students.getName()}"></td>
+    </tr>
+</table>
+<br>
+<br>
+<aside id="right_column">
+           <table>
+                <tr>
+                    <th><h1>Announcements</h1></th>
+                </tr>
+                <tr th:each="announcement : ${topicdetail.getAnnouncement()}">
+                    <td th:text="${announcement}"></td>
+                </tr>
+            </table>
+</aside>
+
+
+
+</body>
 </html>

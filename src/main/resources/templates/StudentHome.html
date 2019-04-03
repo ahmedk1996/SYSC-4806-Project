@@ -9,10 +9,10 @@
 </head>
 <body>
 <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" style=" color:white;" href="/index">[[${#httpServletRequest.remoteUser}]]'s Homepage!</a>
+    <a class="navbar-brand" style=" color:white;">Welcome Student</a>
     <form class="form-inline" style=" margin-left: auto;
     margin-right: auto;">
-        <button class="btn btn-outline-danger" type="submit" formaction="/index">Home</button>
+        <button class="btn btn-outline-danger" type="submit" formaction="/">Home</button>
         <button class="btn btn-outline-primary" type="submit" formaction="/dateSubmit">Submit Availability</button>
     </form>
 </nav>
@@ -27,7 +27,6 @@
         <th> Description </th>
         <th> Program Restriction </th>
         <th> Max Students Allowed </th>
-        <th> Notifications </th>
     </tr>
     </thead>
     <tbody>
@@ -36,11 +35,16 @@
         <td><span th:text="${topic.description}"> Description </span></td>
         <td><span th:text="${topic.restrictions}"> Program Restriction </span></td>
         <td><span th:text="${topic.max_Students}"> Max Students Allowed </span></td>
-        <td><span th:text="${topic.announcement}"> Notifications </span></td>
-        <td><form>
-            <input method="get" type='submit' name='join' value='Join' formaction="/join" />
-            <input method="post" type='submit' name='detail' value='Detail' formaction="/detail" />
-        </form></td>
+        <td><span th:number="${topic.max_Students}"> Max Student</span></td>
+        <td><span> <input type="hidden"  th:value="${topic}" /> </span></td>
+
+        <td><form action="#" th:action="@{detail}" method="get">
+            <input type="hidden" th:name="topicName" th:value="${topic.topicName}" />
+            <button class="btn btn-outline-primary" type="submit">Detail</button></form></td>
+        <td th:unless "${topic.availability}"> <form action="#" th:action="@{join}" method="get">
+        <input type="hidden" th:name="topicName" th:value="${topic.topicName}" />
+        <button class="btn btn-outline-primary" type="submit">Join</button></form></td>
+
     </tr>
     </tbody>
 
