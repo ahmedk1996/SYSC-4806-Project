@@ -1,12 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Date Confirmation</title>
+    <title >Welcome Student: Ahmed</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-<h1>Dates are shown below:</h1>
 <body>
-<p>Start Date: </p>
-
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" style=" color:white;">Welcome Student: Ahmed Khattab</a>
+    <form class="form-inline" style=" margin-left: auto;
+    margin-right: auto;">
+        <button class="btn btn-outline-success" type="submit" formaction="/upload">Upload 4th Year Report</button>
+        <button class="btn btn-outline-danger" type="submit" formaction="/">Home</button>
+    </form>
+</nav>
+<table border="1" align="center">
+    <thead>
+    <tr align="center">
+        <th> Preference </th>
+        <th> Date </th>
+        <th> Time Slot </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr align="center" th:each="topic : ${dates}">
+        <td><span th:text="${1}"> Preference </span></td>
+        <td><span th:text="${dates.getnewDate1()}"> Date </span></td>
+        <td><span th:text="${dates.getnewTime1()}"> Time Slot </span></td>
+    </tr>
+    <tr align="center" th:each="topic : ${dates}">
+        <td><span th:text="${2}"> Preference </span></td>
+        <td><span th:text="${dates.getnewDate2()}"> Date </span></td>
+        <td><span th:text="${dates.getnewTime2()}"> Time Slot</span></td>
+    </tr>
+    <tr align="center" th:each="topic : ${dates}">
+        <td><span th:text="${3}"> Preference </span></td>
+        <td><span th:text="${dates.getnewDate3()}"> Date </span></td>
+        <td><span th:text="${dates.getnewTime3()}"> Time Slot </span></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
