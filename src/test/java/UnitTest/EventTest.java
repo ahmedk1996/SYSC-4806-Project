@@ -39,7 +39,8 @@ public class EventTest {
         assertEquals("Expected output is Presentation","Presentation", testEvent.getEventName());
     }
 
-    @Test void setNameTest() {
+    @Test
+    public void setNameTest() {
         testEvent.setEventName("testy");
         assertEquals("Expected: testy is the new name","testy",testEvent.getEventName());
     }

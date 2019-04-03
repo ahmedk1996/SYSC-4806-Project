@@ -25,12 +25,33 @@ public class ProfController {
         model.addAttribute("topic", topicRepository.findAll());
         return "Prof";
     }
+    @GetMapping ("/prof/topic")
+    public String profViewTopic(Model model) {
+        model.addAttribute("topic", new Topic());
+        return "ProfTopic";
+    }
 
-//    @GetMapping ("/all")
-//    public String display (Model model,@ModelAttribute Topic topic){
-//        model.addAttribute( "topic", topicRepository.findAll());
-//        return "Display";
-//    }
+    @GetMapping ("/archive")
+    public String archive(@RequestParam int topicId) {
+        Topic topic = topicRepository.findById(topicId);
+        System.out.println(topic.getId());
+        topic.setAvailability(false);
+        topicRepository.save(topic);
+        return "redirect:/prof";
+    }
+
+    @GetMapping ("/activate")
+    public String activate(@RequestParam int topicId) {
+        Topic topic = topicRepository.findById(topicId);
+        topic.setAvailability(true);
+        topicRepository.save(topic);
+        return "redirect:/prof";
+    }
+    @GetMapping ("/delete")
+    public String delete(@RequestParam int topicId) {
+        topicRepository.deleteById(topicId);
+        return "redirect:/prof";
+    }
 
 
     @GetMapping ("/prof")
@@ -39,7 +60,7 @@ public class ProfController {
         return "Prof";
     }
 
-   
+
 
 
 

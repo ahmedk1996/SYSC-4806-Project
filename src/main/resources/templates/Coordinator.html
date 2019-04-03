@@ -9,10 +9,11 @@
 </head>
 <body>
 <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">Coordinator Home </a>
+    <a class="navbar-brand" href="/coord">[[${#httpServletRequest.remoteUser}]]'s Home </a>
     <form class="form-inline" style=" margin-left: auto;
     margin-right: auto;">
         <button class="btn btn-outline-primary" type="submit" formaction="/enrollment">Student Enrollment</button>
+        <button class="btn btn-outline-primary" type="submit" formaction="/projectDeadline">Project Deadline</button>
     </form>
 </nav>
 
@@ -29,14 +30,13 @@
     </thead>
     <tbody>
 
+
     <tr th:each="topic : ${topic}">
         <td><span th:text="${topic.topicName}"> Topic Title </span></td>
         <td><span th:text="${topic.description}"> Description </span></td>
         <td><span th:text="${topic.restrictions}"> Program Restriction </span></td>
         <td><span th:text="${topic.max_Students}"> Max Students Allowed </span></td>
         <td><span th:text="${topic.announcement}"> Notifications </span></td>
-
-
 
 
     </tr>
