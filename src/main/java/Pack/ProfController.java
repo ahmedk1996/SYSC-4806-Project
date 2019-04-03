@@ -29,6 +29,7 @@ public class ProfController {
     @GetMapping ("/archive")
     public String archive(@RequestParam int topicId) {
         Topic topic = topicRepository.findById(topicId);
+        System.out.println(topic.getId());
         topic.setAvailability(false);
         topicRepository.save(topic);
         return "redirect:/prof";
