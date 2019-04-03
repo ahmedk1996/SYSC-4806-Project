@@ -33,12 +33,15 @@ public class ProfIntegrationTest {
     public void testProfPage() throws Exception{
         this.mockMVC.perform(get("/prof")).andExpect(status().isOk()).andExpect(view().name("Prof"));
     }
+    @Test
     public void testProfDelete() throws Exception{
         this.mockMVC.perform(get("/delete")).andExpect(status().isOk()).andExpect(view().name("Prof"));
     }
+    @Test
     public void testProfArchive() throws Exception{
         this.mockMVC.perform(get("/archive")).andExpect(status().isOk()).andExpect(view().name("Prof"));
     }
+    @Test
     public void testProfActivate() throws Exception{
         this.mockMVC.perform(get("/activate")).andExpect(status().isOk()).andExpect(view().name("Prof"));
     }
