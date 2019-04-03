@@ -18,6 +18,36 @@ public class Topic {
     private String topicName;
     private String description;
     private int max_Students;
+    private String preference1;
+    private String preference2;
+    private String preference3;
+
+
+    public String getPreference1() {
+        return preference1;
+    }
+
+    public void setPreference1(String preference1) {
+        this.preference1 = preference1;
+    }
+
+    public String getPreference2() {
+        return preference2;
+    }
+
+    public void setPreference2(String preference2) {
+        this.preference2 = preference2;
+    }
+
+    public String getPreference3() {
+        return preference3;
+    }
+
+    public void setPreference3(String preference3) {
+        this.preference3 = preference3;
+    }
+
+
 
     private ArrayList<Student> studentList;
     private ArrayList<String> announcement;
@@ -46,6 +76,7 @@ public class Topic {
     public Topic(){
 
     }
+
     public Topic(String topicName, String description, String restrictions , int max_Students){
         this.topicName = topicName;
         this.description = description;
@@ -90,6 +121,16 @@ public class Topic {
     public void setStudentList(ArrayList<Student> studentList) {
         this.studentList = studentList;
 
+    }
+
+    public Topic(String topicName, String description, String restrictions , int max_Students, String preference1, String preference2, String preference3){
+        this.topicName = topicName;
+        this.description = description;
+        this.max_Students = max_Students;
+        this.restrictions = restrictions;
+        this.preference1 = preference1;
+        this.preference2 = preference2;
+        this.preference3 = preference3;
     }
 
     public String getTopicName() {

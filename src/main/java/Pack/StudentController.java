@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 @Controller
-
 public class StudentController {
 
     @Autowired
@@ -19,6 +18,20 @@ public class StudentController {
         String name= "Hunho Ha";
         model.addAttribute("name",name);
         return "StudentHome";
+    }
+
+    @GetMapping(value= "/dateSubmit")
+    public String dateSubmit(Model model){
+        model.addAttribute("date", new AvailabilityDate());
+
+        return "datePicker";
+    }
+
+
+    @PostMapping(value = "/dateSubmit")
+    public String studentDate(@ModelAttribute AvailabilityDate dates, Model model){
+        model.addAttribute("dates", dates);
+        return "dateConfirmed";
     }
 
 

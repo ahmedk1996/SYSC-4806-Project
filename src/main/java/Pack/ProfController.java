@@ -16,7 +16,6 @@ public class ProfController {
     @GetMapping ("/add")
     public String addForm(Model model) {
         model.addAttribute("topic", new Topic());
-        //topicRepository.save(topic);
         return "Addform";
     }
 
@@ -33,11 +32,11 @@ public class ProfController {
         return "Prof";
     }
 
-//    @GetMapping ("/all")
-//    public String display (Model model,@ModelAttribute Topic topic){
-//        model.addAttribute( "topic", topicRepository.findAll());
-//        return "Display";
-//    }
+    @GetMapping ("/all")
+    public String display (Model model,@ModelAttribute Topic topic){
+        model.addAttribute( "topic", topicRepository.findAll());
+        return "Display";
+    }
 
 
 }
